@@ -37,7 +37,7 @@
 
     <section class="dashboard">
         <div class="heading">
-            <h1>Heading</h1>
+            <h1>dashboard</h1>
             <img src="../image/layer.jpg" width="100">
         </div>
         <div class="box-container">
@@ -53,10 +53,84 @@
                 $num_of_msg = $select_msg->rowCount();
                 ?>
                 <h3><?= $num_of_msg; ?></h3>
+                <p>Semua Pesanan</p>
                 <a href="admin_message.php" class="btn">Lihat Pesanan</a>
+            </div>
+            <div class="box">
+                <?php 
+                $select_sevices = $conn->prepare("SELECT * FROM layanan ");
+                $select_sevices->execute();
+                $num_of_sevices = $select_sevices->rowCount();
+                ?>
+                <h3><?= $num_of_sevices; ?></h3>
+                <p>Semua Layanan</p>
+                <a href="view_services.php" class="btn">Lihat Pelayanan</a>
+            </div>
+             <div class="box">
+                <?php 
+                $select_active_sevices = $conn->prepare("SELECT * FROM layanan WHERE status = ? ");
+                $select_active_sevices->execute(['active']);
+                $num_of_active_sevices = $select_active_sevices->rowCount();
+                ?>
+                <h3><?= $num_of_sevices; ?></h3>
+                <P>Layanan Aktif</P>
+                <a href="view_sevices.php" class="btn">Pelayanan Aktif</a>
+            </div>
+            <div class="box">
+                <?php 
+                $select_deactive_sevices = $conn->prepare("SELECT * FROM layanan WHERE status = ? ");
+                $select_deactive_sevices->execute(['deactive']);
+                $num_of_deactive_sevices = $select_deactive_sevices->rowCount();
+                ?>
+                <h3><?= $num_of_sevices; ?></h3>
+                <p>Layanan Tidak Aktif</p>
+                <a href="view_sevices.php" class="btn">Pelayanan Tidak Aktif</a>
+            </div>
+            <div class="box">
+                <?php 
+                $select_employee = $conn->prepare("SELECT * FROM karyawan ");
+                $select_employee->execute();
+                $num_of_employee = $select_employee->rowCount();
+                ?>
+                <h3><?= $num_of_employee; ?></h3>
+                <p>Semua Karyawan</p>
+                <a href="view_employee.php" class="btn">Lihat karyawan</a>
+            </div>
+             <div class="box">
+                <?php 
+                $select_appointment = $conn->prepare("SELECT * FROM janji");
+                $select_appointment->execute();
+                $num_of_appointment = $select_appointment->rowCount();
+                ?>
+                <h3><?= $num_of_appointment; ?></h3>
+                <p>Janji Temu Dipesan</p>
+                <a href="view_appointment.php" class="btn">Semua Janji Temu</a>
+            </div>
+            <div class="box">
+                <?php 
+                $select_canceled_appointment = $conn->prepare("SELECT * FROM janji WHERE status = ? ");
+                $select_canceled_appointment->execute(['canceled']);
+                $num_of_canceled_appointment = $select_canceled_appointment->rowCount();
+                ?>
+                <h3><?= $num_of_canceled_appointment; ?></h3>
+                <p>Janji Temu Batal</p>
+                <a href="view_appointment.php" class="btn">Janji Temu Batal</a>
+            </div>
+            <div class="box">
+                <?php 
+                $select_users = $conn->prepare("SELECT * FROM pelanggan");
+                $select_users->execute();
+                $num_of_users = $select_users->rowCount();
+                ?>
+                <h3><?= $num_of_users; ?></h3>
+                <p>Semua Pelanggan</p>
+                <a href="view_users.php" class="btn">Lihat Pelanggan</a>
+            </div>
             </div>
         </div>
     </section>
+
+    <?php include '../components/admin_footer.php'; ?>
     
     <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/2.1.2/sweetalert.min.js"></script>
     <script type="text/javascript" src="../js/admin_script.js"></script>
