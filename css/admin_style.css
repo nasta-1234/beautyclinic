@@ -472,10 +472,32 @@ header .right{
     border-radius: 50%;
     line-height: 50px;
     text-align: center;
-    background: var(--pink-color);
+    background: var(--white-alfa-25);
     border: 1px solid var(--main-color);
     color: var(--main-color);
     cursor: pointer;
     font-size: 1.5rem;
     margin: 1rem;
+}
+.newsletter button{
+    border: none;
+
+}
+.client{
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr));
+    align-items: center;
+    justify-content: center;
+    padding: 4% 0;
+    margin: 0 auto;
+}
+.client .img-box{
+    text-align: center;
+    cursor: pointer;
+}
+.client img{
+    filter: grayscale(1);
+}
+.client img:hover{
+    filter: grayscale(0);
 }
