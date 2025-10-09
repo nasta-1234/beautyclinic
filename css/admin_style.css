@@ -353,10 +353,10 @@ header .right{
     text-transform: uppercase;
     color: var(--main-color);
     padding: .5rem 1rem;
-    margin: 5rem 0;
+    margin: .5rem 0;
 }
 .profile{
-    margin: 5rem auto;
+    margin: .5rem auto;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -500,4 +500,77 @@ header .right{
 }
 .client img:hover{
     filter: grayscale(0);
+}
+footer{
+    background-image: url('../image/footer.jpg');
+    background-size: cover;
+    padding: 300px 0 0;
+    width: 100%;
+}
+footer img{
+    width: 200px;
+}
+footer .content{
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr));
+    align-items: center;
+    justify-content: center;
+}
+footer .content .box{
+    margin: 1rem;
+    line-height: 1.7;
+    color: #000;
+}
+footer .content .box .btn{
+    text-align: center;
+    padding: .5rem;
+}
+footer .content .box h3{
+    text-transform: capitalize;
+    font-size: 1.4rem;
+    margin-bottom: .5rem;
+}
+footer .content .box a{
+    font-size: 16px;
+    display: block;
+    color: #000;
+    text-transform: capitalize;
+}
+footer .content .box a:hover{
+    color: var(--main-color);
+}
+footer .content .box i{
+    margin-right: .5rem;
+}
+footer .content .box p{
+    line-height: 1.5;
+}
+footer .content .box .icons{
+    margin-top: 1rem;
+}
+footer .content .box .icons i{
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    line-height: 40px;
+    text-align: center;
+    background: var(--white-alfa-25);
+    border: 1px solid var(--main-color);
+    color: var(--main-color);
+    cursor: pointer;
+    font-size: 1.5rem;
+    margin: .1rem;
+}
+footer .bottom{
+    margin-top: 2rem;
+    text-align: center;
+    padding: 2rem;
+    border-top: 1px solid #fff;
+    line-height: 2;
+    color: #000;
+    font-size: 1.2rem;
+    text-transform: capitalize;
+}
+footer .bottom span{
+    color: crimson;
 }

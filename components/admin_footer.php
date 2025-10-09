@@ -41,7 +41,7 @@
         <div class="box">
             <img src="../image/logo.png">
         <p>Satu dashboard untuk mempermudah, mempercantik, dan mengembangkan layanan Anda</p>
-        <a href="contact.php" class="btn">Contact Us</a>
+        <a href="contact.php" class="btn">Hubungi Kami</a>
         </div>
         <div class="box">
             <h3>Akun Saya</h3>
@@ -64,5 +64,21 @@
             <a href=""><i class="bx bx-chevron-right">Karyawan</i></a>
             <a href=""><i class="bx bx-chevron-right">Bulletin</i></a>
         </div>
+        <div class="box">
+            <h3>Hubungi Kami</h3>
+            <p><i class="bx bxs-phone"></i>+62-882645475627</p>
+            <p><i class="bx bxs-envelope"></i>nasta_beautyclinic@gmail.com</p>
+            <p><i class="bx bxs-location-plus"></i>Bumiayu, Brebes, Jawa Tengah</p>
+            <div class="icons">
+                <i class="bx bxl-facebook"></i>
+                <i class="bx bxl-instagram"></i>
+                <i class="bx bxl-linkedin"></i>
+                <i class="bx bxl-twitter"></i>
+                <i class="bx bxl-pinterest-alt"></i>
+            </div>
+        </div>
+    </div>
+    <div class="bottom">
+        <p>copyright @ 2025 <span>code with NASTA.</span> All Rights Reserved</p>
     </div>
 </footer>
