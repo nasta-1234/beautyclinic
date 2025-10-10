@@ -17,22 +17,22 @@
 </div>
 <div class="client">
     <div class="img-box">
-        <img src="../image/client.png">
+        <img src="../image/client.jpg">
     </div>
     <div class="img-box">
-        <img src="../image/client0.png">
+        <img src="../image/client0.jpg">
     </div>
     <div class="img-box">
-        <img src="../image/client1.png">
+        <img src="../image/client1.jpg">
     </div>
     <div class="img-box">
-        <img src="../image/client2.png">
+        <img src="../image/client2.jpg">
     </div>
     <div class="img-box">
-        <img src="../image/client3.png">
+        <img src="../image/client3.jpg">
     </div>
     <div class="img-box">
-        <img src="../image/client4.png">
+        <img src="../image/client4.jpg">
     </div>
     </div>
 </div>
