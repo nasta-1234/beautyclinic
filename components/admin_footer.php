@@ -55,7 +55,7 @@
             <a href=""><i class="bx bx-chevron-right">Tentang Kami</i></a>
             <a href=""><i class="bx bx-chevron-right">Riwayat Layanan</i></a>
             <a href=""><i class="bx bx-chevron-right">Kebijakan Privasi</i></a>
-            <a href=""><i class="bx bx-chevron-right">Syarat $ Ketentuan</i></a>
+            <a href=""><i class="bx bx-chevron-right">Syarat & Ketentuan</i></a>
         </div>
         <div class="box">
             <h3>Tambahan</h3>

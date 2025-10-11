@@ -40,6 +40,27 @@
             <h1>Add Services</h1>
             <img src="../image/layer.jpg" width="100">
         </div>
+        <div class="form-container">
+            <form action="" methode="post" enctype="multipart/form-data" class="register"></form>
+            <div class="input-field">
+                <p>Service name <span>*</span></p>
+                <input type="text" name="nama" placeholder="add service name" required class="box">
+            </div>
+            <div class="input-field">
+                <p>Service price <span>*</span></p>
+                <input type="number" name="price" placeholder="add service price" required class="box">
+            </div>
+            <div class="input-field">
+                <p>Service description <span>*</span></p>
+                <textarea name="content"required placeholder="sevice description"class="box"></textarea>
+            </div>
+            <div class="input-field">
+                <p>Service categori <span>*</span></p>
+                <select >
+                    <option value=""></option>
+                </select>
+            </div>
+        </div>
         
     </section>
 
