@@ -41,7 +41,7 @@
             <img src="../image/layer.jpg" width="100">
         </div>
         <div class="form-container">
-            <form action="" methode="post" enctype="multipart/form-data" class="register"></form>
+            <form action="" methode="post" enctype="multipart/form-data" class="register">
             <div class="input-field">
                 <p>Service name <span>*</span></p>
                 <input type="text" name="nama" placeholder="add service name" required class="box">
@@ -57,11 +57,22 @@
             <div class="input-field">
                 <p>Service categori <span>*</span></p>
                 <select >
-                    <option value=""></option>
+                    <option selected disabled>select category</option>
+                    <option value="Perawatan Wajah">Perawatan Wajah</option>
+                    <option value="Perawatan Tubuh">Perawatan Tubuh</option>
+                    <option value="Perawatan Rambut dan Kulit Kepala">Perawatan Rambut dan Kulit Kepala</option>
+                    <option value="Perawatan Kuku- Tangan dan Kaki">Perawatan Kuku- Tangan dan Kaki</option>
+                    <option value="Konsultasi dan Produk Perawatan">Konsultasi dan Produk Perawatan</option>
                 </select>
             </div>
+            <div class="input-field">
+                <p>Service image <span>*</span></p>
+                <input type="file" name="foto" accept="image/*" required class="box">
+            </div>
+            
+            </form>
         </div>
-        
+
     </section>
 
     <?php include '../components/admin_footer.php'; ?>
