@@ -593,3 +593,10 @@ footer .bottom{
 footer .bottom span{
     color: crimson;
 }
+.add_services{
+    background-image: url('../image/bg.jpg');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+
+}
