@@ -37,8 +37,8 @@
         <div class="navbar">
             <ul>
                 <li><a href="dashboard.php"><i class="bx bxs-home-smile"></i> Dashboard</a></li>
-                <li><a href="add_service.php"><i class="bx bxs-shopping-bags"></i> Add Service</a></li>
-                <li><a href="view_service.php"><i class="bx bxs-food-menu"></i> View Service</a></li>
+                <li><a href="add_services.php"><i class="bx bxs-shopping-bags"></i> Add Services</a></li>
+                <li><a href="view_services.php"><i class="bx bxs-food-menu"></i> View Service</a></li>
                 <li><a href="add_employee.php"><i class="bx bxs-shopping-bags"></i> Add Employee</a></li>
                 <li><a href="view_employee.php"><i class="bx bxs-food-menu"></i> View Employee</a></li>
                 <li><a href="user_account.php"><i class="bx bxs-user-detail"></i> Accounts</a></li>
