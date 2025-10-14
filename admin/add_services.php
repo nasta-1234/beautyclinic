@@ -124,7 +124,7 @@
 
     <div class="banner">
         <div class="detail">
-            <h1>Dashboard</h1>
+            <h1>Tambah Layanan</h1>
             <p style="text-align: left;">Halo, Selamat Datang di Dashboard Beauty Clinic 🌸 <br>
                 Kelola semua kebutuhan klinik dalam satu tempat: <br>
                 💎 Lihat jadwal booking harian & mingguan <br>
@@ -132,7 +132,7 @@
                 💎 Kelola layanan, promo, dan pembayaran dengan mudah <br>
                 💎 Dapatkan insight perkembangan bisnis klinik secara real-time <br> <br>
                 ✨ "Satu dashboard untuk mempermudah, mempercantik, dan mengembangkan layanan Anda."</p>
-                <span> <a href="dashboard.php">Admin</a><i class="bx bx-right-arrow-alt"></i>Add Services</span>
+                <span> <a href="dashboard.php">Admin</a><i class="bx bx-right-arrow-alt"></i>Tambahkan Layanan</span>
         </div>
     </div>
 

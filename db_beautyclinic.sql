@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Waktu pembuatan: 01 Okt 2025 pada 11.59
+-- Waktu pembuatan: 14 Okt 2025 pada 16.19
 -- Versi server: 10.4.32-MariaDB
 -- Versi PHP: 8.2.12
 
@@ -87,7 +87,7 @@ CREATE TABLE `karyawan` (
 --
 
 CREATE TABLE `layanan` (
-  `id_layanan` varchar(20) NOT NULL,
+  `id` varchar(20) NOT NULL,
   `nama` varchar(50) NOT NULL,
   `harga` int(100) NOT NULL,
   `foto` varchar(100) NOT NULL,
@@ -95,6 +95,13 @@ CREATE TABLE `layanan` (
   `kategori` varchar(100) NOT NULL,
   `status` varchar(100) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data untuk tabel `layanan`
+--
+
+INSERT INTO `layanan` (`id`, `nama`, `harga`, `foto`, `detail_layanan`, `kategori`, `status`) VALUES
+('WVYJx5JkMwuNP31w3mBG', 'botox', 500, '4GDlXmrVYkCD6L5Pruog.jpg', 'nclchkchskc,sdhx', 'Perawatan Wajah', 'active');
 
 -- --------------------------------------------------------
 
@@ -151,7 +158,7 @@ ALTER TABLE `karyawan`
 -- Indeks untuk tabel `layanan`
 --
 ALTER TABLE `layanan`
-  ADD PRIMARY KEY (`id_layanan`);
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Indeks untuk tabel `pelanggan`
