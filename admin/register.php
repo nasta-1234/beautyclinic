@@ -4,19 +4,19 @@
         $id = unique_id();
 
         $nama = $_POST['nama'];
-        $nama = filter_var($nama, FILTER_SANITIZE_STRING);
+        $nama = htmlspecialchars(trim($nama), ENT_QUOTES, 'UTF-8');
 
         $email = $_POST['email'];
-        $email = filter_var($email, FILTER_SANITIZE_STRING);
+        $email = htmlspecialchars(trim($email), ENT_QUOTES, 'UTF-8');
 
         $pass = sha1($_POST['pass']);
-        $pass = filter_var($pass, FILTER_SANITIZE_STRING);
+        $pass = htmlspecialchars(trim($pass), ENT_QUOTES, 'UTF-8');
 
         $cpass = sha1($_POST['cpass']);
-        $cpass = filter_var($cpass, FILTER_SANITIZE_STRING);
+        $cpass = htmlspecialchars(trim($cpass), ENT_QUOTES, 'UTF-8');
 
         $foto = $_FILES['foto']['name'];
-        $foto = filter_var($foto, FILTER_SANITIZE_STRING);
+        $foto = htmlspecialchars(trim($foto), ENT_QUOTES, 'UTF-8');
         $ext = pathinfo($foto, PATHINFO_EXTENSION);
         $rename = unique_id().'.'.$ext;
         $image_size = $_FILES['foto']['size'];
