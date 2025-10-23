@@ -29,7 +29,7 @@ if (!$service) {
 // Fungsi upload gambar baru
 function uploadImage($file) {
     $foto = $file['name'];
-    $foto = filter_var($foto, FILTER_SANITIZE_STRING);
+    $foto = htmlspecialchars(trim($foto), ENT_QUOTES, 'UTF-8');
     if (!empty($foto)) {
         $ext = pathinfo($foto, PATHINFO_EXTENSION);
         $rename = bin2hex(random_bytes(8)) . '.' . $ext;
@@ -49,11 +49,11 @@ function uploadImage($file) {
 
 // Proses update layanan
 if (isset($_POST['update_service'])) {
-    $nama = filter_var($_POST['nama'], FILTER_SANITIZE_STRING);
-    $harga = filter_var($_POST['harga'], FILTER_SANITIZE_STRING);
-    $detail_layanan = filter_var($_POST['detail_layanan'], FILTER_SANITIZE_STRING);
-    $kategori = filter_var($_POST['kategori'], FILTER_SANITIZE_STRING);
-    $status = filter_var($_POST['status'], FILTER_SANITIZE_STRING);
+    $nama = htmlspecialchars(trim($nama), ENT_QUOTES, 'UTF-8');
+    $harga = htmlspecialchars(trim($harga), ENT_QUOTES, 'UTF-8');
+    $detail_layanan = htmlspecialchars(trim($detail_layanan), ENT_QUOTES, 'UTF-8');
+    $kategoori = htmlspecialchars(trim($kategori), ENT_QUOTES, 'UTF-8');
+    $status = htmlspecialchars(trim($status), ENT_QUOTES, 'UTF-8');
 
     $foto = $service['foto']; // pakai foto lama sebagai default
     if (isset($_FILES['foto']) && $_FILES['foto']['name'] != '') {

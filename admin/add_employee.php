@@ -14,19 +14,19 @@ if (isset($_POST['add_employee'])) {
     $id = unique_id();
 
     $nama = $_POST['nama'];
-    $nama = filter_var($nama, FILTER_SANITIZE_STRING);
+    $nama = htmlspecialchars(trim($nama), ENT_QUOTES, 'UTF-8');
 
     $jabatan = $_POST['jabatan'];
-    $jabatan = filter_var($jabatan, FILTER_SANITIZE_STRING);
+    $jabatan = htmlspecialchars(trim($jabatan), ENT_QUOTES, 'UTF-8');
 
     $no_hp = $_POST['no_hp'];
-    $no_hp = filter_var($no_hp, FILTER_SANITIZE_STRING);
+    $no_hp = htmlspecialchars(trim($no_hp), ENT_QUOTES, 'UTF-8');
 
     $email = $_POST['email'];
-    $email = filter_var($email, FILTER_SANITIZE_EMAIL);
+    $email = htmlspecialchars(trim($email), ENT_QUOTES, 'UTF-8');
 
     $alamat = $_POST['alamat'];
-    $alamat = filter_var($alamat, FILTER_SANITIZE_STRING);
+    $alamat = htmlspecialchars(trim($alamat), ENT_QUOTES, 'UTF-8');
     
     // upload foto karyawan
     $foto = $_FILES['foto']['name'];
@@ -69,22 +69,22 @@ if (isset($_POST['draft'])) {
     $id = unique_id();
 
     $nama = $_POST['nama'];
-    $nama = filter_var($nama, FILTER_SANITIZE_STRING);
+    $nama = htmlspecialchars(trim($nama), ENT_QUOTES, 'UTF-8');
 
     $jabatan = $_POST['jabatan'];
-    $jabatan = filter_var($jabatan, FILTER_SANITIZE_STRING);
+    $jabatan = htmlspecialchars(trim($jabatan), ENT_QUOTES, 'UTF-8');
 
     $no_hp = $_POST['no_hp'];
-    $no_hp = filter_var($no_hp, FILTER_SANITIZE_STRING);
+    $no_hp = htmlspecialchars(trim($no_hp), ENT_QUOTES, 'UTF-8');
 
     $email = $_POST['email'];
-    $email = filter_var($email, FILTER_SANITIZE_EMAIL);
+    $email = htmlspecialchars(trim($email), ENT_QUOTES, 'UTF-8');
 
     $alamat = $_POST['alamat'];
-    $alamat = filter_var($alamat, FILTER_SANITIZE_STRING);
+    $alamat = htmlspecialchars(trim($alamat), ENT_QUOTES, 'UTF-8');
     
     $foto = $_FILES['foto']['name'];
-    $foto = filter_var($foto, FILTER_SANITIZE_STRING);
+    $foto = htmlspecialchars(trim($foto), ENT_QUOTES, 'UTF-8');
     $ext = pathinfo($foto, PATHINFO_EXTENSION);
     $rename = unique_id().'.'.$ext;
     $image_size = $_FILES['foto']['size'];

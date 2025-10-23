@@ -9,11 +9,6 @@ if (isset($_COOKIE['admin_id'])) {
     exit();
 }
 
-// Fungsi generate ID unik
-function unique_id() {
-    return bin2hex(random_bytes(8));
-}
-
 $success_msg = [];
 $warning_msg = [];
 
@@ -22,13 +17,12 @@ function addService($conn, $status) {
     global $success_msg, $warning_msg;
 
     $id_layanan = unique_id(); // ID berdasarkan kolom baru
-    $nama = filter_var($_POST['nama'], FILTER_SANITIZE_STRING);
-    $harga = filter_var($_POST['harga'], FILTER_SANITIZE_STRING);
-    $detail_layanan = filter_var($_POST['detail_layanan'], FILTER_SANITIZE_STRING);
-    $kategori = filter_var($_POST['kategori'], FILTER_SANITIZE_STRING);
-
+    $nama = htmlspecialchars(trim($nama), ENT_QUOTES, 'UTF-8');
+    $harga = htmlspecialchars(trim($harga), ENT_QUOTES, 'UTF-8');
+    $detail_layanan = htmlspecialchars(trim($detail_layanan), ENT_QUOTES, 'UTF-8');
+    $kategori = htmlspecialchars(trim($kategori), ENT_QUOTES, 'UTF-8');
     $foto = $_FILES['foto']['name'];
-    $foto = filter_var($foto, FILTER_SANITIZE_STRING);
+    $foto = htmlspecialchars(trim($foto), ENT_QUOTES, 'UTF-8');
     $rename = '';
     if (!empty($foto)) {
         $ext = pathinfo($foto, PATHINFO_EXTENSION);

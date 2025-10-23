@@ -15,7 +15,7 @@
     if (isset($_POST['delete'])) {
         
         $s_id = $_POST['service_id'];
-        $s_id = filter_var($s_id, FILTER_SANITIZE_STRING);
+        $s_id = htmlspecialchars(trim($s_id), ENT_QUOTES, 'UTF-8');
 
         $delete_image = $conn->prepare("SELECT * FROM layanan WHERE id = ?");
         $delete_image->execute([$s_id]);

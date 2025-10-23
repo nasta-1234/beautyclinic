@@ -11,7 +11,7 @@ $warning_msg = [];
 
 // Hapus layanan
 if (isset($_POST['delete'])) {
-    $id_layanan = filter_var($_POST['id_layanan'], FILTER_SANITIZE_STRING);
+    $id_layanan = htmlspecialchars(trim($id_lyanan), ENT_QUOTES, 'UTF-8');
 
     // Ambil foto untuk dihapus
     $select_image = $conn->prepare("SELECT foto FROM layanan WHERE id_layanan = ?");

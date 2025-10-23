@@ -3,10 +3,10 @@
     if (isset($_POST['login'])) {
 
         $email = $_POST['email'];
-        $email = filter_var($email, FILTER_SANITIZE_STRING);
+        $email = htmlspecialchars(trim($email), ENT_QUOTES, 'UTF-8');
 
         $pass = sha1($_POST['pass']);
-        $pass = filter_var($pass, FILTER_SANITIZE_STRING);
+        $pass = htmlspecialchars(trim($pass), ENT_QUOTES, 'UTF-8');
 
         $select_admin = $conn->prepare("SELECT * FROM admin WHERE email = ? AND password = ? LIMIT 1");
         $select_admin->execute([$email, $pass]);
