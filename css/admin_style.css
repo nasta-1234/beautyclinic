@@ -719,3 +719,46 @@ footer .bottom span{
     font-size: 1.3rem;
     margin: .5rem 0;
 }
+
+/* ======== FIX HEADER & SIDEBAR CLICK ISSUE ======== */
+header {
+  position: fixed !important;
+  z-index: 10000 !important;
+}
+
+.sidebar {
+  position: fixed !important;
+  z-index: 9999 !important;
+}
+
+/* pastikan banner tidak menutupi header */
+.banner {
+  position: relative !important;
+  z-index: 1 !important;
+  margin-top: 100px !important; /* supaya konten turun ke bawah header */
+}
+
+/* form-container kadang juga menutupi area header */
+.form-container {
+  position: relative !important;
+  z-index: 1 !important;
+  margin-top: 80px !important;
+}
+
+/* profil dropdown biar muncul di atas semua */
+.profile_detail {
+  position: absolute !important;
+  top: 80px !important;
+  right: 20px;
+  z-index: 10001 !important;
+  background: #fff;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+
+/* tombol user dan menu aktif diklik */
+#user-btn, #toggle-btn {
+  position: relative;
+  z-index: 10002 !important;
+  cursor: pointer;
+}

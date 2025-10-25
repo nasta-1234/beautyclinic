@@ -10,39 +10,29 @@ if (isset($_COOKIE['admin_id'])) {
 
 // tambah karyawan ke database
 if (isset($_POST['add_employee'])) {
-    
     $id = unique_id();
 
-    $nama = $_POST['nama'];
-    $nama = htmlspecialchars(trim($nama), ENT_QUOTES, 'UTF-8');
+    $nama = htmlspecialchars(trim($_POST['nama']), ENT_QUOTES, 'UTF-8');
+    $jabatan = htmlspecialchars(trim($_POST['jabatan']), ENT_QUOTES, 'UTF-8');
+    $no_hp = htmlspecialchars(trim($_POST['no_hp']), ENT_QUOTES, 'UTF-8');
+    $email = htmlspecialchars(trim($_POST['email']), ENT_QUOTES, 'UTF-8');
+    $alamat = htmlspecialchars(trim($_POST['alamat']), ENT_QUOTES, 'UTF-8');
 
-    $jabatan = $_POST['jabatan'];
-    $jabatan = htmlspecialchars(trim($jabatan), ENT_QUOTES, 'UTF-8');
-
-    $no_hp = $_POST['no_hp'];
-    $no_hp = htmlspecialchars(trim($no_hp), ENT_QUOTES, 'UTF-8');
-
-    $email = $_POST['email'];
-    $email = htmlspecialchars(trim($email), ENT_QUOTES, 'UTF-8');
-
-    $alamat = $_POST['alamat'];
-    $alamat = htmlspecialchars(trim($alamat), ENT_QUOTES, 'UTF-8');
-    
     // upload foto karyawan
     $foto = $_FILES['foto']['name'];
     $foto = filter_var($foto, FILTER_SANITIZE_STRING);
     $ext = pathinfo($foto, PATHINFO_EXTENSION);
-    $rename = unique_id().'.'.$ext;
+    $rename = unique_id() . '.' . $ext;
     $image_size = $_FILES['foto']['size'];
     $image_tmp_name = $_FILES['foto']['tmp_name'];
-    $image_folder = '../uploaded_files/'.$rename;
+    $image_folder = '../uploaded_files/' . $rename;
 
     $status = 'active';
 
     $select_image = $conn->prepare("SELECT * FROM karyawan WHERE foto = ?");
     $select_image->execute([$foto]);
 
-    if (isset($foto)) {
+    if (!empty($foto)) {
         if ($select_image->rowCount() > 0) {
             $warning_msg[] = 'Nama file foto sudah digunakan!';
         } elseif ($image_size > 2000000) {
@@ -65,38 +55,28 @@ if (isset($_POST['add_employee'])) {
 
 // simpan ke draft
 if (isset($_POST['draft'])) {
-
     $id = unique_id();
 
-    $nama = $_POST['nama'];
-    $nama = htmlspecialchars(trim($nama), ENT_QUOTES, 'UTF-8');
+    $nama = htmlspecialchars(trim($_POST['nama']), ENT_QUOTES, 'UTF-8');
+    $jabatan = htmlspecialchars(trim($_POST['jabatan']), ENT_QUOTES, 'UTF-8');
+    $no_hp = htmlspecialchars(trim($_POST['no_hp']), ENT_QUOTES, 'UTF-8');
+    $email = htmlspecialchars(trim($_POST['email']), ENT_QUOTES, 'UTF-8');
+    $alamat = htmlspecialchars(trim($_POST['alamat']), ENT_QUOTES, 'UTF-8');
 
-    $jabatan = $_POST['jabatan'];
-    $jabatan = htmlspecialchars(trim($jabatan), ENT_QUOTES, 'UTF-8');
-
-    $no_hp = $_POST['no_hp'];
-    $no_hp = htmlspecialchars(trim($no_hp), ENT_QUOTES, 'UTF-8');
-
-    $email = $_POST['email'];
-    $email = htmlspecialchars(trim($email), ENT_QUOTES, 'UTF-8');
-
-    $alamat = $_POST['alamat'];
-    $alamat = htmlspecialchars(trim($alamat), ENT_QUOTES, 'UTF-8');
-    
     $foto = $_FILES['foto']['name'];
     $foto = htmlspecialchars(trim($foto), ENT_QUOTES, 'UTF-8');
     $ext = pathinfo($foto, PATHINFO_EXTENSION);
-    $rename = unique_id().'.'.$ext;
+    $rename = unique_id() . '.' . $ext;
     $image_size = $_FILES['foto']['size'];
     $image_tmp_name = $_FILES['foto']['tmp_name'];
-    $image_folder = '../uploaded_files/'.$rename;
+    $image_folder = '../uploaded_files/' . $rename;
 
     $status = 'deactive';
 
     $select_image = $conn->prepare("SELECT * FROM karyawan WHERE foto = ?");
     $select_image->execute([$foto]);
 
-    if (isset($foto)) {
+    if (!empty($foto)) {
         if ($select_image->rowCount() > 0) {
             $warning_msg[] = 'Nama file foto sudah digunakan!';
         } elseif ($image_size > 2000000) {
@@ -118,13 +98,60 @@ if (isset($_POST['draft'])) {
 }
 ?>
 <!DOCTYPE html>
-<html>
+<html lang="id">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" detail_layanan="width=device-width, initial-scale=1">
     <title>Tambah Karyawan</title>
     <link href="https://unpkg.com/boxicons@2.1.2/css/boxicons.min.css" rel="stylesheet">
-    <link rel="stylesheet" type="text/css" href="../css/admin_style.css?v=<?php echo time();?>">
+    <link rel="stylesheet" href="../css/admin_style.css?v=<?php echo time(); ?>">
+    <style>
+        header {
+          position: fixed !important;
+          top: 0;
+          left: 0;
+          right: 0;
+          z-index: 10000 !important;
+          background: #fff;
+        }
+
+        .banner,
+        .add_services {
+          margin-top: 120px !important;
+          position: relative;
+          z-index: 1;
+        }
+
+        .sidebar {
+          position: fixed !important;
+          top: 0;
+          left: 0;
+          z-index: 9999 !important;
+          background: #fff;
+          height: 100%;
+          overflow-y: auto;
+        }
+
+        #user-btn, #toggle-btn {
+          cursor: pointer;
+          z-index: 10001;
+        }
+
+        .profile_detail {
+          position: absolute;
+          top: 80px;
+          right: 20px;
+          background: #fff;
+          z-index: 10002 !important;
+          border-radius: 10px;
+          box-shadow: 0 0 10px rgba(0,0,0,0.1);
+          display: none;
+        }
+
+        .profile_detail.active {
+          display: block;
+        }
+    </style>
 </head>
 <body>
 
@@ -183,8 +210,33 @@ if (isset($_POST['draft'])) {
 </section>
 
 <?php include '../components/admin_footer.php'; ?>
+
+<!-- JS Libraries -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/2.1.2/sweetalert.min.js"></script>
-<script type="text/javascript" src="../js/admin_script.js"></script>
+<script src="../js/admin_script.js"></script>
+
+<!-- Script interaksi header dan sidebar -->
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    const userBtn = document.querySelector('#user-btn');
+    const profile = document.querySelector('.profile_detail');
+    const toggleBtn = document.querySelector('#toggle-btn');
+    const sidebar = document.querySelector('.sidebar');
+
+    if (userBtn && profile) {
+        userBtn.onclick = () => {
+            profile.classList.toggle('active');
+        };
+    }
+
+    if (toggleBtn && sidebar) {
+        toggleBtn.onclick = () => {
+            sidebar.classList.toggle('active');
+        };
+    }
+});
+</script>
+
 <?php include '../components/alert.php'; ?>
 </body>
 </html>
