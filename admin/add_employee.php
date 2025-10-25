@@ -100,6 +100,7 @@ if (isset($_POST['draft'])) {
 <!DOCTYPE html>
 <html lang="id">
 <head>
+
     <meta charset="UTF-8">
     <meta name="viewport" detail_layanan="width=device-width, initial-scale=1">
     <title>Tambah Karyawan</title>
@@ -170,6 +171,7 @@ if (isset($_POST['draft'])) {
     </div>
 </div>
 
+
 <section class="add_services">
     <div class="heading">
         <h1>Tambahkan Karyawan Baru</h1>
@@ -205,6 +207,11 @@ if (isset($_POST['draft'])) {
                 <button type="submit" name="add_employee" class="btn">Tambahkan Karyawan</button>
                 <button type="submit" name="draft" class="btn">Simpan ke Draft</button>
             </div>
+
+<div class="flex-btn">
+                <button type="submit" name="add_employee" class="btn">Kembali</button>
+            </div>
+
         </form>
     </div>
 </section>
@@ -215,7 +222,6 @@ if (isset($_POST['draft'])) {
 <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/2.1.2/sweetalert.min.js"></script>
 <script src="../js/admin_script.js"></script>
 
-<!-- Script interaksi header dan sidebar -->
 <script>
 document.addEventListener('DOMContentLoaded', function() {
     const userBtn = document.querySelector('#user-btn');
@@ -225,12 +231,14 @@ document.addEventListener('DOMContentLoaded', function() {
 
     if (userBtn && profile) {
         userBtn.onclick = () => {
+            alert('Profil ditekan!');
             profile.classList.toggle('active');
         };
     }
 
     if (toggleBtn && sidebar) {
         toggleBtn.onclick = () => {
+            alert('Garis tiga ditekan!');
             sidebar.classList.toggle('active');
         };
     }
