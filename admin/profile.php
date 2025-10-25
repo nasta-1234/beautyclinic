@@ -142,7 +142,7 @@ p {
     <?php foreach ($admins as $admin): ?>
         <div class="profile-card">
             <?php 
-                $img_path = '/beautyclinic/uploaded_img/' . $admin['foto'];
+                $img_path = '/beautyclinic/uploaded_files/' . $admin['foto'];
             ?>
             <img src="<?= htmlspecialchars($img_path); ?>" 
                  onerror="this.src='<?= $default_photo ?>';" alt="Foto Admin">

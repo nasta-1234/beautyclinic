@@ -113,7 +113,7 @@ tbody tr:hover {
                         <td><?= htmlspecialchars($user['id_pelanggan']) ?></td>
                         <td>
                             <?php 
-                                $foto_path = '/beautyclinic/uploaded_img/' . $user['foto'];
+                                $foto_path = '/beautyclinic/uploaded_files/' . $user['foto'];
                                 if (!empty($user['foto']) && file_exists($_SERVER['DOCUMENT_ROOT'].$foto_path)) {
                                     $img_src = $foto_path;
                                 } else {
