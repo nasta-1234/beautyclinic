@@ -208,7 +208,7 @@ if (isset($_POST['draft'])) {
                 <button type="submit" name="draft" class="btn">Simpan ke Draft</button>
             </div>
 
-<div class="flex-btn">
+            <div class="flex-btn">
                 <button type="submit" name="add_employee" class="btn">Kembali</button>
             </div>
 
