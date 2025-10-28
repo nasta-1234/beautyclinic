@@ -161,6 +161,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 <option value="" disabled selected>Pilih kategori</option>
                 <option value="Perawatan Wajah">Perawatan Wajah</option>
                 <option value="Perawatan Tubuh">Perawatan Tubuh</option>
+                <option value="Perawatan Rambut dan Kulit Kepala">Perawatan Rambut dan Kulit Kepala</option>
             </select>
 
             <p>Foto Layanan <span>*</span></p>
