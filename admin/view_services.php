@@ -99,7 +99,6 @@ if (isset($_POST['delete'])) {
             <form action="" method="post" class="box">
                 <input type="hidden" name="id_layanan" value="<?= htmlspecialchars($fetch_service['id_layanan']); ?>">
 
-                <!-- ✅ Path sudah disesuaikan: /beautyclinic/ -->
                 <?php if (!empty($fetch_service['foto'])): ?>
                     <img src="/beautyclinic/uploaded_files/<?= htmlspecialchars($fetch_service['foto']); ?>"
                          class="foto"

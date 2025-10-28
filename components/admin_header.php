@@ -54,11 +54,11 @@ if ($admin_id) {
     <div class="navbar">
         <ul>
             <li><a href="dashboard.php"><i class="bx bxs-home-smile"></i> Dashboard</a></li>
-            <li><a href="add_services.php"><i class="bx bxs-shopping-bags"></i> Add Services</a></li>
-            <li><a href="view_services.php"><i class="bx bxs-food-menu"></i> View Service</a></li>
-            <li><a href="add_employee.php"><i class="bx bxs-user-plus"></i> Add Employee</a></li>
-            <li><a href="view_employee.php"><i class="bx bxs-group"></i> View Employee</a></li>
-            <li><a href="user_account.php"><i class="bx bxs-user-detail"></i> Accounts</a></li>
+            <li><a href="add_services.php"><i class="bx bxs-shopping-bags"></i> Tambah Layanan</a></li>
+            <li><a href="view_services.php"><i class="bx bxs-food-menu"></i> Lihat Layanan</a></li>
+            <li><a href="add_employee.php"><i class="bx bxs-user-plus"></i> Tambah Karyawan</a></li>
+            <li><a href="view_employee.php"><i class="bx bxs-group"></i> Lihat Karyawan</a></li>
+            <li><a href="user_account.php"><i class="bx bxs-user-detail"></i> Akun</a></li>
             <li><a href="../components/admin_logout.php" onclick="return confirm('Logout dari website ini?')"><i class="bx bxs-log-out"></i> Logout</a></li>
         </ul>
     </div>
