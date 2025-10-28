@@ -1,12 +1,13 @@
 <?php
 include '../components/connect.php';
 
+// cek login
 if (!isset($_COOKIE['admin_id'])) {
     header('location:login.php');
     exit();
 }
 
-// Ambil id_layanan dari URL
+// ambil id layanan
 if (!isset($_GET['id_layanan'])) {
     header('location:view_services.php');
     exit();
@@ -16,7 +17,7 @@ $id_layanan = $_GET['id_layanan'];
 $success_msg = [];
 $warning_msg = [];
 
-// Ambil data layanan saat ini
+// ambil data lama
 $select_service = $conn->prepare("SELECT * FROM layanan WHERE id_layanan = ?");
 $select_service->execute([$id_layanan]);
 $service = $select_service->fetch(PDO::FETCH_ASSOC);
@@ -26,42 +27,49 @@ if (!$service) {
     exit();
 }
 
-// Fungsi upload gambar baru
+// fungsi upload gambar baru
 function uploadImage($file) {
-    $foto = $file['name'];
-    $foto = htmlspecialchars(trim($foto), ENT_QUOTES, 'UTF-8');
-    if (!empty($foto)) {
-        $ext = pathinfo($foto, PATHINFO_EXTENSION);
-        $rename = bin2hex(random_bytes(8)) . '.' . $ext;
-        $image_size = $file['size'];
-        $image_tmp_name = $file['tmp_name'];
-        $image_folder = '../uploaded_files/' . $rename;
-
-        if ($image_size > 2000000) {
-            return ['error' => 'Ukuran gambar terlalu besar (maks 2MB).'];
-        } else {
-            move_uploaded_file($image_tmp_name, $image_folder);
-            return ['name' => $rename];
-        }
+    if (!isset($file['name']) || $file['error'] !== UPLOAD_ERR_OK) {
+        return ['name' => '', 'error' => null];
     }
-    return ['name' => ''];
+
+    $foto = trim($file['name']);
+    $ext = strtolower(pathinfo($foto, PATHINFO_EXTENSION));
+    $rename = bin2hex(random_bytes(8)) . '.' . $ext;
+    $image_size = $file['size'];
+    $image_tmp_name = $file['tmp_name'];
+    $image_folder = '../uploaded_files/' . $rename;
+
+    if ($image_size > 2000000) {
+        return ['error' => 'Ukuran gambar terlalu besar (maks 2MB).'];
+    }
+
+    $allowed = ['jpg', 'jpeg', 'png', 'webp', 'gif'];
+    if (!in_array($ext, $allowed)) {
+        return ['error' => 'Format gambar tidak didukung.'];
+    }
+
+    move_uploaded_file($image_tmp_name, $image_folder);
+    return ['name' => $rename];
 }
 
-// Proses update layanan
+// proses update
 if (isset($_POST['update_service'])) {
-    $nama = htmlspecialchars(trim($nama), ENT_QUOTES, 'UTF-8');
-    $harga = htmlspecialchars(trim($harga), ENT_QUOTES, 'UTF-8');
-    $detail_layanan = htmlspecialchars(trim($detail_layanan), ENT_QUOTES, 'UTF-8');
-    $kategoori = htmlspecialchars(trim($kategori), ENT_QUOTES, 'UTF-8');
-    $status = htmlspecialchars(trim($status), ENT_QUOTES, 'UTF-8');
+    // ambil nilai baru atau pakai nilai lama
+    $nama = trim($_POST['nama'] ?? $service['nama']);
+    $harga = trim($_POST['harga'] ?? $service['harga']);
+    $detail_layanan = trim($_POST['detail_layanan'] ?? $service['detail_layanan']);
+    $kategori = trim($_POST['kategori'] ?? $service['kategori']);
+    $status = trim($_POST['status'] ?? $service['status']);
+    $foto = $service['foto']; // default: foto lama
 
-    $foto = $service['foto']; // pakai foto lama sebagai default
+    // jika upload foto baru
     if (isset($_FILES['foto']) && $_FILES['foto']['name'] != '') {
         $upload = uploadImage($_FILES['foto']);
-        if (isset($upload['error'])) {
+        if ($upload['error']) {
             $warning_msg[] = $upload['error'];
         } else {
-            // hapus foto lama jika ada
+            // hapus foto lama
             if (!empty($service['foto']) && file_exists('../uploaded_files/'.$service['foto'])) {
                 unlink('../uploaded_files/'.$service['foto']);
             }
@@ -69,11 +77,17 @@ if (isset($_POST['update_service'])) {
         }
     }
 
+    // kalau tidak ada error
     if (empty($warning_msg)) {
-        $update = $conn->prepare("UPDATE layanan SET nama = ?, harga = ?, detail_layanan = ?, kategori = ?, foto = ?, status = ? WHERE id_layanan = ?");
+        $update = $conn->prepare("
+            UPDATE layanan 
+            SET nama = ?, harga = ?, detail_layanan = ?, kategori = ?, foto = ?, status = ? 
+            WHERE id_layanan = ?
+        ");
         $update->execute([$nama, $harga, $detail_layanan, $kategori, $foto, $status, $id_layanan]);
+
         $success_msg[] = 'Layanan berhasil diperbarui!';
-        // reload data setelah update
+        // refresh data
         $select_service->execute([$id_layanan]);
         $service = $select_service->fetch(PDO::FETCH_ASSOC);
     }
@@ -106,31 +120,29 @@ if (isset($_POST['update_service'])) {
             ?>
             <form action="" method="post" enctype="multipart/form-data" class="register">
                 <p>Nama Layanan <span>*</span></p>
-                <input type="text" name="nama" value="<?= htmlspecialchars($service['nama']); ?>" required class="box">
+                <input type="text" name="nama" value="<?= htmlspecialchars($service['nama']); ?>" class="box">
 
                 <p>Harga Layanan <span>*</span></p>
-                <input type="number" name="harga" value="<?= htmlspecialchars($service['harga']); ?>" required class="box">
+                <input type="number" name="harga" value="<?= htmlspecialchars($service['harga']); ?>" class="box">
 
                 <p>Detail Layanan <span>*</span></p>
-                <textarea name="detail_layanan" required class="box"><?= htmlspecialchars($service['detail_layanan']); ?></textarea>
+                <textarea name="detail_layanan" class="box"><?= htmlspecialchars($service['detail_layanan']); ?></textarea>
 
                 <p>Kategori Layanan <span>*</span></p>
-                <select name="kategori" class="box" required>
+                <select name="kategori" class="box">
                     <option value="Perawatan Wajah" <?= $service['kategori']=='Perawatan Wajah'?'selected':'' ?>>Perawatan Wajah</option>
                     <option value="Perawatan Tubuh" <?= $service['kategori']=='Perawatan Tubuh'?'selected':'' ?>>Perawatan Tubuh</option>
                     <option value="Perawatan Rambut dan Kulit Kepala" <?= $service['kategori']=='Perawatan Rambut dan Kulit Kepala'?'selected':'' ?>>Perawatan Rambut dan Kulit Kepala</option>
-                    <option value="Perawatan Kuku - Tangan dan Kaki" <?= $service['kategori']=='Perawatan Kuku - Tangan dan Kaki'?'selected':'' ?>>Perawatan Kuku - Tangan dan Kaki</option>
-                    <option value="Konsultasi dan Produk Perawatan" <?= $service['kategori']=='Konsultasi dan Produk Perawatan'?'selected':'' ?>>Konsultasi dan Produk Perawatan</option>
                 </select>
 
                 <p>Foto Layanan</p>
-                <?php if(!empty($service['foto'])) { ?>
+                <?php if(!empty($service['foto'])): ?>
                     <img src="../uploaded_files/<?= htmlspecialchars($service['foto']); ?>" class="foto" style="width:100px;margin-bottom:10px;">
-                <?php } ?>
+                <?php endif; ?>
                 <input type="file" name="foto" accept="image/*" class="box">
 
                 <p>Status <span>*</span></p>
-                <select name="status" class="box" required>
+                <select name="status" class="box">
                     <option value="active" <?= $service['status']=='active'?'selected':'' ?>>Aktif</option>
                     <option value="deactive" <?= $service['status']=='deactive'?'selected':'' ?>>Draft</option>
                 </select>
