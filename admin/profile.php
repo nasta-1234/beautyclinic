@@ -11,7 +11,7 @@ if (isset($_COOKIE['admin_id'])) {
 // Daftar admin manual
 $admins = [
     [
-        'nama' => 'Tena Dokter',
+        'nama' => 'Dokter Tena',
         'email' => 'tenaerfiana25@email.com',
         'foto' => 'tenadokter.jpg',
         'jabatan' => 'Dokter Kecantikan',
@@ -19,7 +19,7 @@ $admins = [
         'jadwal' => 'Senin - Jumat, 09:00 - 17:00'
     ],
     [
-        'nama' => 'Alfi Dokter',
+        'nama' => 'Dokter Alfi',
         'email' => 'alfirestizelia@email.com',
         'foto' => 'alfidokter.jpg',
         'jabatan' => 'Dokter Kecantikan',
@@ -27,7 +27,7 @@ $admins = [
         'jadwal' => 'Selasa - Sabtu, 10:00 - 18:00'
     ],
     [
-        'nama' => 'Najwa Dokter',
+        'nama' => 'Dokter Najwa',
         'email' => 'sabhiranajwa@email.com',
         'foto' => 'najwadokter.jpg',
         'jabatan' => 'Dokter Kecantikan',
@@ -35,7 +35,7 @@ $admins = [
         'jadwal' => 'Senin - Kamis, 09:00 - 16:00'
     ],
     [
-        'nama' => 'Sasi Dokter',
+        'nama' => 'Dokter Sasi',
         'email' => 'sasimaelani@email.com',
         'foto' => 'sasidokter.jpg',
         'jabatan' => 'Dokter Kecantikan',
