@@ -12,37 +12,48 @@ if (isset($_COOKIE['admin_id'])) {
 $success_msg = [];
 $warning_msg = [];
 
-// Fungsi menambahkan layanan
+// Fungsi untuk menambahkan layanan
 function addService($conn, $status) {
     global $success_msg, $warning_msg;
 
-    $id_layanan = unique_id(); // ID berdasarkan kolom baru
-    $nama = htmlspecialchars(trim($nama), ENT_QUOTES, 'UTF-8');
-    $harga = htmlspecialchars(trim($harga), ENT_QUOTES, 'UTF-8');
-    $detail_layanan = htmlspecialchars(trim($detail_layanan), ENT_QUOTES, 'UTF-8');
-    $kategori = htmlspecialchars(trim($kategori), ENT_QUOTES, 'UTF-8');
+    // Ambil data dari form
+    $nama = htmlspecialchars(trim($_POST['nama']), ENT_QUOTES, 'UTF-8');
+    $harga = htmlspecialchars(trim($_POST['harga']), ENT_QUOTES, 'UTF-8');
+    $detail_layanan = htmlspecialchars(trim($_POST['detail_layanan']), ENT_QUOTES, 'UTF-8');
+    $kategori = htmlspecialchars(trim($_POST['kategori']), ENT_QUOTES, 'UTF-8');
+
+    // Buat id unik untuk layanan
+    $id_layanan = uniqid('layanan_');
+
+    // Proses upload foto
     $foto = $_FILES['foto']['name'];
-    $foto = htmlspecialchars(trim($foto), ENT_QUOTES, 'UTF-8');
     $rename = '';
     if (!empty($foto)) {
         $ext = pathinfo($foto, PATHINFO_EXTENSION);
-        $rename = unique_id() . '.' . $ext;
+        $rename = uniqid('foto_') . '.' . $ext;
         $image_size = $_FILES['foto']['size'];
         $image_tmp_name = $_FILES['foto']['tmp_name'];
         $image_folder = '../uploaded_files/' . $rename;
 
         if ($image_size > 2000000) {
             $warning_msg[] = 'Ukuran gambar terlalu besar (maksimal 2MB).';
+            return;
         } else {
             move_uploaded_file($image_tmp_name, $image_folder);
         }
     }
 
+    // Masukkan data ke database
     try {
-        $insert_services = $conn->prepare("INSERT INTO layanan (id_layanan, nama, harga, foto, detail_layanan, kategori, status) VALUES (?, ?, ?, ?, ?, ?, ?)");
+        $insert_services = $conn->prepare("
+            INSERT INTO layanan (id_layanan, nama, harga, foto, detail_layanan, kategori, status)
+            VALUES (?, ?, ?, ?, ?, ?, ?)
+        ");
         $insert_services->execute([$id_layanan, $nama, $harga, $rename, $detail_layanan, $kategori, $status]);
 
-        $success_msg[] = $status == 'active' ? 'Pelayanan berhasil ditambahkan!' : 'Pelayanan berhasil disimpan sebagai draft!';
+        $success_msg[] = $status == 'active' 
+            ? 'Layanan berhasil ditambahkan!' 
+            : 'Layanan berhasil disimpan sebagai draft!';
     } catch (PDOException $e) {
         $warning_msg[] = 'Terjadi kesalahan: ' . $e->getMessage();
     }
