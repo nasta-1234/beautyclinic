@@ -36,20 +36,33 @@ if (isset($_POST['delete'])) {
 }
 ?>
 <!DOCTYPE html>
-<html lang="id">
+<html>
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Lihat Layanan - Beauty Clinic</title>
-
-    <!-- Boxicons -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Lihat-Layanan</title>
     <link href="https://unpkg.com/boxicons@2.1.2/css/boxicons.min.css" rel="stylesheet">
-
-    <!-- CSS -->
-    <link rel="stylesheet" href="../css/admin_style.css?v=<?php echo time(); ?>">
+    <link rel="stylesheet" type="text/css" href="../css/admin_style.css?v=<?php echo time();?>">
+    <style>
+        .quick-access {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 20px;
+        }
+        .quick-access .btn {
+            padding: 10px 20px;
+            background-color: #ff66b3;
+            color: white;
+            border-radius: 8px;
+            text-decoration: none;
+            text-align: center;
+        }
+        .quick-access .btn:hover {
+            background-color: #ff3399;
+        }
+    </style>
 </head>
 <body>
-
     <?php include '../components/admin_header.php'; ?>
 
     <div class="banner">
