@@ -38,11 +38,15 @@ if (isset($_POST['delete'])) {
 <!DOCTYPE html>
 <html>
 <head>
+
+<?php include '../components/admin_header.php'; ?>
+
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Lihat-Layanan</title>
     <link href="https://unpkg.com/boxicons@2.1.2/css/boxicons.min.css" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="../css/admin_style.css?v=<?php echo time();?>">
+    <link href="https://unpkg.com/boxicons@2.1.2/css/boxicons.min.css" rel="stylesheet">
     <style>
         .quick-access {
             display: flex;
