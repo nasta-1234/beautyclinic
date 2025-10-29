@@ -156,5 +156,7 @@ if (isset($_POST['update_service'])) {
     </section>
 
     <?php include '../components/admin_footer.php'; ?>
+    <script type="text/javascript" src="../js/admin_script.js"></script>
+    <?php include '../components/alert.php'; ?>
 </body>
 </html>

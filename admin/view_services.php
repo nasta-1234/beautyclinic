@@ -2,7 +2,9 @@
 include '../components/connect.php';
 
 // Cek login admin
-if (!isset($_COOKIE['admin_id'])) {
+if (isset($_COOKIE['admin_id'])) {
+    $admin_id = $_COOKIE['admin_id'];
+} else {
     header('location:login.php');
     exit();
 }
@@ -39,7 +41,6 @@ if (isset($_POST['delete'])) {
 <html>
 <head>
 
-<?php include '../components/admin_header.php'; ?>
 
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -143,5 +144,7 @@ if (isset($_POST['delete'])) {
     </section>
 
     <?php include '../components/admin_footer.php'; ?>
+    <script type="text/javascript" src="../js/admin_script.js"></script>
+    <?php include '../components/alert.php'; ?>
 </body>
 </html>

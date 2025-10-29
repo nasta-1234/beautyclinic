@@ -6,7 +6,7 @@
 <div class="bx bxs-user" id="user-btn"></div>
 <div class="bx bx-menu" id="toggle-btn"></div>
 </div>
-<div class="profile-detail">
+<div class="profile_detail">
 <?php  
 
 $select_profile = $conn->prepare("SELECT * FROM admin WHERE id = ?");
@@ -17,7 +17,7 @@ if ($select_profile->rowCount() > 0){
 }
 ?>
 <div class="profile">
-  <img src="../uploaded_files/<?= $fetch_profile['image']; ?>" class="logo-img">
+  <img src="../uploaded_files/<?= $fetch_profile['foto']; ?>" class="logo-img">
   <p> <?= $fetch_profile['nama']; ?></p>
 </div>
 <div class="flex-btn">
@@ -32,7 +32,7 @@ if ($select_profile->rowCount() > 0){
 
 <div class="sidebar">
   <div class="profile">
-    <img src="../uploaded_files/<?= $fetch_profile['image']; ?>" class="logo-img">
+    <img src="../uploaded_files/<?= $fetch_profile['foto']; ?>" class="logo-img">
     <p> <?= $fetch_profile['nama']; ?></p>
 </div>
 <h5> menu </h5>

@@ -21,7 +21,7 @@ $admins = [
     [
         'nama' => 'Dokter Alfi',
         'email' => 'alfirestizelia@email.com',
-        'foto' => 'alfidokter.jpg',
+        'foto' => 'alfidokter.jpeg',
         'jabatan' => 'Dokter Kecantikan',
         'spesialis' => 'Anti-aging & Injectables',
         'jadwal' => 'Selasa - Sabtu, 10:00 - 18:00'
@@ -37,7 +37,7 @@ $admins = [
     [
         'nama' => 'Dokter Sasi',
         'email' => 'sasimaelani@email.com',
-        'foto' => 'sasidokter.jpg',
+        'foto' => 'sasidokter.jpeg',
         'jabatan' => 'Dokter Kecantikan',
         'spesialis' => 'Dermatologi & Konsultasi Kulit',
         'jadwal' => 'Rabu - Minggu, 10:00 - 19:00'
@@ -156,5 +156,10 @@ p {
 </section>
 
 <?php include '../components/admin_footer.php'; ?>
+<script type="text/javascript" src="../js/admin_script.js"></script>
+<?php include '../components/alert.php'; ?>
 </body>
+
+
+
 </html>

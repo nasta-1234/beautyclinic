@@ -1,7 +1,9 @@
 <?php
 include '../components/connect.php';
 
-if (!isset($_COOKIE['admin_id'])) {
+if (isset($_COOKIE['admin_id'])) {
+    $admin_id = $_COOKIE['admin_id'];
+} else {
     header('location:login.php');
     exit();
 }
@@ -203,29 +205,8 @@ if (isset($_POST['draft'])) {
         </form>
     </div>
 </section>
-
 <?php include '../components/admin_footer.php'; ?>
-
-<script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/2.1.2/sweetalert.min.js"></script>
 <script src="../js/admin_script.js"></script>
-
-<script>
-document.addEventListener('DOMContentLoaded', function() {
-    const userBtn = document.querySelector('#user-btn');
-    const profile = document.querySelector('.profile_detail');
-    const toggleBtn = document.querySelector('#toggle-btn');
-    const sidebar = document.querySelector('.sidebar');
-
-    if (userBtn && profile) {
-        userBtn.onclick = () => profile.classList.toggle('active');
-    }
-
-    if (toggleBtn && sidebar) {
-        toggleBtn.onclick = () => sidebar.classList.toggle('active');
-    }
-});
 </script>
-
-<?php include '../components/alert.php'; ?>
 </body>
 </html>
