@@ -38,7 +38,7 @@ if ($select_profile->rowCount() > 0){
 <h5> menu </h5>
 <div class="navbar">
   <ul>
-    <li> <a href="dashbord.php"><i class="bx bxs-home-smile"></i>dashboard</a></li>
+    <li> <a href="dashboard.php"><i class="bx bxs-home-smile"></i>dashboard</a></li>
     <li> <a href="add_services.php"><i class="bx bxs-shopping-bags"></i>add services</a></li>
     <li> <a href="view_services.php"><i class="bx bxs-food-menu"></i>view services</a></li>
     <li> <a href="add_employee.php"><i class="bx bxs-shopping-bags"></i>add employee</a></li>
