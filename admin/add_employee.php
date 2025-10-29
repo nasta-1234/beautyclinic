@@ -76,65 +76,21 @@ if (isset($_POST['draft'])) {
     <link href="https://unpkg.com/boxicons@2.1.2/css/boxicons.min.css" rel="stylesheet">
     <link rel="stylesheet" href="../css/admin_style.css?v=<?php echo time(); ?>">
     <style>
-        header {
-            position: fixed !important;
-            top: 0;
-            left: 0;
-            right: 0;
-            z-index: 10000 !important;
-            background: #fff;
+        .quick-access {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 20px;
         }
-
-        .banner,
-        .add_services {
-            margin-top: 120px !important;
-            position: relative;
-            z-index: 1;
-        }
-
-        .sidebar {
-            position: fixed !important;
-            top: 0;
-            left: 0;
-            z-index: 9999 !important;
-            background: #fff;
-            height: 100%;
-            overflow-y: auto;
-        }
-
-        #user-btn, #toggle-btn {
-            cursor: pointer;
-            z-index: 10001;
-        }
-
-        .profile_detail {
-            position: absolute;
-            top: 80px;
-            right: 20px;
-            background: #fff;
-            z-index: 10002 !important;
-            border-radius: 10px;
-            box-shadow: 0 0 10px rgba(0,0,0,0.1);
-            display: none;
-        }
-
-        .profile_detail.active {
-            display: block;
-        }
-
-        .btn-back {
-            background-color: #ff69b4;
-            color: white;
-            border: none;
-            border-radius: 10px;
+        .quick-access .btn {
             padding: 10px 20px;
-            cursor: pointer;
-            font-weight: 600;
-            transition: 0.3s;
+            background-color: #ff66b3;
+            color: white;
+            border-radius: 8px;
+            text-decoration: none;
+            text-align: center;
         }
-
-        .btn-back:hover {
-            background-color: #ff8ac9;
+        .quick-access .btn:hover {
+            background-color: #ff3399;
         }
     </style>
 </head>
@@ -207,6 +163,5 @@ if (isset($_POST['draft'])) {
 </section>
 <?php include '../components/admin_footer.php'; ?>
 <script src="../js/admin_script.js"></script>
-</script>
 </body>
 </html>

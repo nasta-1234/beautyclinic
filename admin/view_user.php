@@ -1,10 +1,13 @@
 <?php
 include '../components/connect.php';
 
+// cek login
 if (!isset($_COOKIE['admin_id'])) {
     header('location:login.php');
     exit();
 }
+
+$admin_id = $_COOKIE['admin_id']; // ✅ tambahkan ini
 
 // Ambil semua pelanggan
 $stmt = $conn->prepare("SELECT * FROM pelanggan ORDER BY id_pelanggan ASC");

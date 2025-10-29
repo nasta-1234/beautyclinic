@@ -43,7 +43,7 @@ if ($select_profile->rowCount() > 0){
     <li> <a href="view_services.php"><i class="bx bxs-food-menu"></i>view services</a></li>
     <li> <a href="add_employee.php"><i class="bx bxs-shopping-bags"></i>add employee</a></li>
     <li> <a href="view_employee.php"><i class="bx bxs-food-menu"></i>view employee</a></li>
-    <li> <a href="user_account.php"><i class="bx bxs-user-detail"></i>account</a></li>
+    <li> <a href="view_user.php"><i class="bx bxs-user-detail"></i>account</a></li>
     <li> <a href="../components/admin_logout.php" onclick="return confirm('logout from this website');"><i class="bx bxs-log-out"></i>logout</a></li>
 </ul>
 </div>

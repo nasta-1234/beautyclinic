@@ -126,7 +126,7 @@ if (isset($_POST['delete'])) {
 </section>
 
 <?php include '../components/admin_footer.php'; ?>
-<script type="text/javascript" src="../js/admin_script.js"></script>
+<script src="../js/admin_script.js"></script>
 <?php include '../components/alert.php'; ?>
 </body>
 </html>
