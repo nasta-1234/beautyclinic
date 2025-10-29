@@ -200,10 +200,6 @@ if (isset($_POST['draft'])) {
                 <button type="submit" name="add_employee" class="btn">Tambahkan Karyawan</button>
                 <button type="submit" name="draft" class="btn">Simpan ke Draft</button>
             </div>
-
-            <div class="flex-btn" style="margin-top: 1rem;">
-                <a href="dashboard.php" class="btn-back"><i class="bx bx-arrow-back"></i> Kembali ke Dashboard</a>
-            </div>
         </form>
     </div>
 </section>
