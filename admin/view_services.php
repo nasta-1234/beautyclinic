@@ -81,9 +81,12 @@ if (isset($_POST['delete'])) {
     </div>
 
     <section class="view_container">
+        <div class= "heading">
+            <h1> semua layanan </h1>
+            <img src="../image/layer.png" width="100">
+    </div>
         <div class="box-container">
-
-            <!-- Pesan sukses / peringatan -->
+                     <!-- Pesan sukses / peringatan -->
             <?php foreach ($success_msg as $msg): ?>
                 <p style="color:green; text-align:center;"><?= $msg; ?></p>
             <?php endforeach; ?>

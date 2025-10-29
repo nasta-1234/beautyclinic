@@ -8,6 +8,7 @@
 </div>
 <div class="profile-detail">
 <?php  
+
 $select_profile = $conn->prepare("SELECT * FROM admin WHERE id = ?");
 $select_profile->execute([$admin_id]);
 
