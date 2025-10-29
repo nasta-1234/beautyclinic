@@ -86,20 +86,6 @@
         </form>
     </div>
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
     <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/2.1.2/sweetalert.min.js"></script>
     <script type="text/javascript" src="../js/admin_script.js"></script>
     <?php include '../components/alert.php'; ?>

@@ -193,7 +193,7 @@ section{
     z-index: -3;
 }
 .form-container form{
-    background: transparent;
+    background: var(--white-alfa-25);
     border: 2px solid var(--white-alfa-40);
     backdrop-filter: var(--backdrop-filter);
     box-shadow: var(--box-shadow);
@@ -232,7 +232,7 @@ section{
     text-transform: capitalize;
 }
 .form-container span{
-    color: red;
+    color:red;
 }
 .form-container .link{
     padding-bottom: 1rem;
