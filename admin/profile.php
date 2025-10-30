@@ -13,7 +13,7 @@ $admins = [
     [
         'nama' => 'Dokter Tena',
         'email' => 'tenaerfiana25@email.com',
-        'foto' => 'tenadokter.jpg',
+        'foto' => 'dokter_tena.jpg',
         'jabatan' => 'Dokter Kecantikan',
         'spesialis' => 'Facial & Skin Care',
         'jadwal' => 'Senin - Jumat, 09:00 - 17:00'
@@ -21,7 +21,7 @@ $admins = [
     [
         'nama' => 'Dokter Alfi',
         'email' => 'alfirestizelia@email.com',
-        'foto' => 'alfidokter.jpeg',
+        'foto' => 'dokter_alfi.jpg',
         'jabatan' => 'Dokter Kecantikan',
         'spesialis' => 'Anti-aging & Injectables',
         'jadwal' => 'Selasa - Sabtu, 10:00 - 18:00'
@@ -29,7 +29,7 @@ $admins = [
     [
         'nama' => 'Dokter Najwa',
         'email' => 'sabhiranajwa@email.com',
-        'foto' => 'najwadokter.jpg',
+        'foto' => 'dokter_najwa.jpg',
         'jabatan' => 'Dokter Kecantikan',
         'spesialis' => 'Laser & Body Treatments',
         'jadwal' => 'Senin - Kamis, 09:00 - 16:00'
@@ -37,7 +37,7 @@ $admins = [
     [
         'nama' => 'Dokter Sasi',
         'email' => 'sasimaelani@email.com',
-        'foto' => 'sasidokter.jpeg',
+        'foto' => 'dokter_sasi.jpg',
         'jabatan' => 'Dokter Kecantikan',
         'spesialis' => 'Dermatologi & Konsultasi Kulit',
         'jadwal' => 'Rabu - Minggu, 10:00 - 19:00'
@@ -55,7 +55,7 @@ $default_photo = '/beautyclinic/images/default-user.png';
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Profil Admin - NASTA Beauty Clinic</title>
 <link href="https://unpkg.com/boxicons@2.1.2/css/boxicons.min.css" rel="stylesheet">
-<link rel="stylesheet" href="../css/admin_style.css">
+<link rel="stylesheet" type="text/css" href="../css/admin_style.css?v=<?php echo time();?>">
 <style>
 body {
     background: #fff0f5;
@@ -156,7 +156,7 @@ p {
 </section>
 
 <?php include '../components/admin_footer.php'; ?>
-<script type="text/javascript" src="../js/admin_script.js"></script>
+<script src="../js/admin_script.js"></script>
 <?php include '../components/alert.php'; ?>
 </body>
 

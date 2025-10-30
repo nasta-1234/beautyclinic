@@ -133,5 +133,7 @@ if (isset($_COOKIE['admin_id'])) {
     </section>
 
     <?php include '../components/admin_footer.php'; ?>
+    <script src="../js/admin_script.js"></script>
+    <?php include '../components/alert.php'; ?>
 </body>
 </html>

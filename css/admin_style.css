@@ -726,18 +726,11 @@ header {
   z-index: 10000 !important;
 }
 
-/* .sidebar {
+.sidebar {
   position: fixed !important;
   z-index: 9999 !important;
-} */
- .sidebar {
-  left: 0; /* tampil default */
-  transition: left 0.4s ease;
 }
 
-.sidebar.active {
-  left: -20rem; /* sembunyi saat tombol diklik */
-}
 
 
 

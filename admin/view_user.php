@@ -22,6 +22,7 @@ $users = $stmt->fetchAll(PDO::FETCH_ASSOC);
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Daftar Pelanggan - NASTA Beauty Clinic</title>
 <link rel="stylesheet" href="../css/admin_style.css?v=<?php echo time(); ?>">
+<link href="https://unpkg.com/boxicons@2.1.2/css/boxicons.min.css" rel="stylesheet">
 <style>
 body {
     background-color: #fff0f5;
@@ -95,7 +96,7 @@ tbody tr:hover {
 <?php include '../components/admin_header.php'; ?>
 
 <div class="banner">
-    <h2>Daftar Pelanggan</h2>
+    <h2 style="color: #101010;">Daftar Pelanggan</h2>
     <span><a href="dashboard.php">Admin</a><i class="bx bx-right-arrow-alt"></i>Pelanggan</span>
 </div>
 
@@ -139,5 +140,7 @@ tbody tr:hover {
 </div>
 
 <?php include '../components/admin_footer.php'; ?>
+ <script type="text/javascript" src="../js/admin_script.js"></script>
+    <?php include '../components/alert.php'; ?>
 </body>
 </html>
