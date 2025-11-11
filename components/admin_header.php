@@ -1,3 +1,23 @@
+<?php
+include_once __DIR__ . '/connect.php';
+
+// Cek apakah admin sudah login atau belum
+if(isset($_COOKIE['admin_id'])){
+    $admin_id = $_COOKIE['admin_id'];
+} else {
+    $admin_id = ''; // buat kosong supaya tidak undefined
+}
+
+// Jalankan query hanya kalau admin_id ada
+if(!empty($admin_id)){
+    $select_profile = $conn->prepare("SELECT * FROM admin WHERE id = ?");
+    $select_profile->execute([$admin_id]);
+    $fetch_profile = $select_profile->fetch(PDO::FETCH_ASSOC);
+} else {
+    $fetch_profile = null;
+}
+?>
+
 <header>
   <div class="logo">
     <img src="../image/logo.png" width="130">
@@ -24,9 +44,14 @@ if ($select_profile->rowCount() > 0){
   <a href="profile.php" class="btn"> profile </a>
   <a href="../components/admin_logout.php" onclick="return confirm('logout from this website');" class="btn">logout</a>
 </div>
-<?php
+<?php if($fetch_profile): ?>
+   <img src="../uploaded_files/<?= htmlspecialchars($fetch_profile['foto']); ?>" alt="">
+   <h3><?= htmlspecialchars($fetch_profile['nama']); ?></h3>
+<?php else: ?>
+   <h3>Admin belum login</h3>
+   <a href="admin_login.php" class="btn">Login</a>
+<?php endif; ?>
 
-?>
 </div>
 </header>
 
