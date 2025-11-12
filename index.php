@@ -10,7 +10,7 @@ $id_pelanggan = isset($_COOKIE['id_pelanggan']) ? $_COOKIE['id_pelanggan'] : '';
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Beauty Clinic - Home</title>
+<title>NASTA Beauty Clinic</title>
 <link rel="stylesheet" href="css/user_style.css">
 <link href="https://unpkg.com/boxicons@2.1.2/css/boxicons.min.css" rel="stylesheet">
 </head>
@@ -106,7 +106,7 @@ $id_pelanggan = isset($_COOKIE['id_pelanggan']) ? $_COOKIE['id_pelanggan'] : '';
         <div class="box">
             <img src="image/him.jpg">
             <div class="detail">
-                <h1>untu</h1><h1>Pria</h1>
+                <h1>untuk</h1><h1>Pria</h1>
             </div>
         </div>
         <div class="box">
@@ -214,23 +214,89 @@ $id_pelanggan = isset($_COOKIE['id_pelanggan']) ? $_COOKIE['id_pelanggan'] : '';
 
 <div class="vid-banner">
     <div class="overaly"> </div>
-    <video src="image/vidio.mp" autoplay loop></video>
+    <video src="image/vidio.jpg" autoplay loop></video>
     <div class="detail">
         <h1>BeautyClinic</h1>
-        <p></p>
-        <p></p>
+        <p>Salon Beauty Clinic menghadirkan perawatan kecantikan profesional 
+            dengan layanan lengkap untuk merawat wajah, rambut, dan tubuh Anda.</p>
+        <p>Dengan suasana yang nyaman dan tenaga ahli berpengalaman, Salon Beauty Clinic 
+            siap membantu Anda tampil cantik dan percaya diri setiap hari.</p>
         <div class="flex-btn">
             <a href="" class="btn">jelajahi lebih lanjut</a>
             <a href="about.php" class="btn">lebih banyak tentang kita</a>
         </div>
     </div>
-
 </div>
 
+<div class="center">
+    <div class="heading">
+        <span>menjagamu</span>
+        <h1>professional <br> pusat perawatan tubuh & pijat</h1>
+        <img src="image/layer.jpg">
+    </div>
+    <div class="box-container">
+        <div class="box">
+            <img src="image/center.jpg">
+            <span>produk terbaik</span>
+            <h1>janji temu online</h1>
+            <p>Pesan jadwal perawatan Anda secara online dengan mudah melalui website kami dan nikmati layanan eksklusif di Salon Beauty Clinic.</p>
+        </div>
+        <div class="box">
+            <img src="image/center0.jpg">
+            <span>produk terbaik</span>
+            <h1>kartu hadiah tersedia</h1>
+            <p>Berikan sentuhan kecantikan sebagai hadiah istimewa! Kartu hadiah Salon Beauty Clinic kini tersedia untuk orang tersayang.</p>
+        </div>
+        <div class="box">
+            <img src="image/center1.jpg">
+            <span>produk terbaik</span>
+            <h1>penawaran khusus</h1>
+            <p>Penawaran khusus menanti Anda, rasakan perawatan premium dengan harga istimewa hanya di Salon Beauty Clinic.</p>
+        </div>
+        <div class="box">
+            <img src="image/center2.jpg">
+            <span>produk terbaik</span>
+            <h1>perlakuan khusus</h1>
+            <p>Rasakan perlakuan khusus dari tim profesional kami yang siap memanjakan Anda dengan layanan terbaik</p>
+        </div>
+    </div>
+</div>
+<div class="offer">
+    <div class="detail">
+        <h1>Dibutuhkan Tangan Profesional <br> untuk menghilangkan stres harian Anda....</h1>
+        <p>Serahkan perawatan Anda pada tenaga profesional kami dan rasakan sensasi relaksasi yang menenangkan setiap harinya.</p>
+        <a href="" class="btn">Buat Janji Sekarang</a>
+    </div>
+</div>
+<div class="accordion">
+        <div class="contentBox">
+            <div class="label">1. Bagaimana cara saya membuat janji temu?</div>
+            <div class="content">
+                Anda dapat membuat janji temu dengan menghubungi pihak spa melalui nomor kontak yang tersedia atau menggunakan fitur pemesanan online pada website kami.
+            </div>
+        </div>
 
+        <div class="contentBox">
+            <div class="label">2. Apa saja layanan yang tersedia di spa ini?</div>
+            <div class="content">
+                Kami menyediakan berbagai layanan seperti pijat relaksasi, facial, body scrub, aromaterapi, dan perawatan tubuh lainnya untuk meningkatkan kenyamanan Anda.
+            </div>
+        </div>
 
+        <div class="contentBox">
+            <div class="label">3. Apakah saya bisa membatalkan janji yang sudah dibuat?</div>
+            <div class="content">
+                Ya, Anda dapat membatalkan atau mengubah jadwal janji temu minimal 24 jam sebelum waktu yang telah ditentukan dengan menghubungi customer service kami.
+            </div>
+        </div>
 
-
+        <div class="contentBox">
+            <div class="label">4. Apakah spa ini menerima pembayaran non-tunai?</div>
+            <div class="content">
+                Kami menerima berbagai metode pembayaran seperti kartu debit/kredit, transfer bank, serta dompet digital seperti GoPay dan OVO.
+            </div>
+        </div>
+    </div>
 
 <!-- Hero Section -->
 <section class="hero">
@@ -290,5 +356,24 @@ setInterval(nextSlide, 10000);
 </script>
 
 
+</body>
+</html>
+
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FAQ Spa</title>
+
+    <script>
+        const labels = document.querySelectorAll('.label');
+        labels.forEach(label => {
+            label.addEventListener('click', () => {
+                const contentBox = label.parentElement;
+                contentBox.classList.toggle('active');
+            });
+        });
+    </script>
 </body>
 </html>

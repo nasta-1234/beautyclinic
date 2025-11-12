@@ -77,13 +77,14 @@ input[type='submit']{
     line-height: 1.5;
 }
 .heading h1{
-    font-size: 2rem;
+    font-size: 35px;
     text-transform: capitalize;
+    color: var(--main-color);
 }
 .heading span{
-    counter-reset: var(--main-color);
+    counter-reset: var(--pink-color);
     text-transform: capitalize;
-    font-size: 18px;
+    font-size: 24px;
 }
 .heading p{
     text-align: center;
@@ -98,14 +99,13 @@ section{
 }
 .flex-btn{
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
 }
 .flex-btn .btn{
     margin: .5rem;
 }
 .banner{
-    margin-top: 5rem;
-    white-space: 100%;
+    width: 100%;
     height: 100vh;
     display: flex;
     align-items: center;
@@ -383,12 +383,26 @@ button{
 
 /* Toggle aktif */
 /* ===== User Profile Dropdown ===== */
+/* ---------- HEADER ---------- */
+header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1rem 2rem;
+    background: #fff;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+/* ---------- PROFILE DROPDOWN ---------- */
 .header .flex .profile {
     position: absolute;
     top: 100%;
     right: 0;
     background: #fff;
-    border-radius: .5rem;
+    border-radius: 0.5rem;
     padding: 1.5rem;
     text-align: center;
     width: 220px;
@@ -407,37 +421,77 @@ button{
     height: 70px;
     border-radius: 50%;
     object-fit: cover;
-    margin-bottom: .5rem;
+    margin-bottom: 0.5rem;
 }
 
 .header .flex .profile h3 {
     font-size: 1rem;
     color: #ff00c3;
-    margin-bottom: .5rem;
+    margin-bottom: 0.5rem;
 }
 
 .header .flex .profile .btn {
-    padding: .4rem 1rem;
+    display: block;
+    width: 100%;
+    padding: 0.4rem 1rem;
     font-size: 0.9rem;
     margin: 3px 0;
+    text-decoration: none;
+    background: #a2c11c;
+    color: #fff;
+    border-radius: 5px;
+    transition: background 0.3s;
 }
+
+.header .flex .profile .btn:hover {
+    background: #7b9000;
+}
+
+/* ---------- ANIMATION ---------- */
 @keyframes fadeIn {
     from {opacity: 0; transform: translateY(-10px);}
     to {opacity: 1; transform: translateY(0);}
 }
 
-/* Navbar (kalau dipakai) */
-.header .navbar{
-    display: flex;
-    margin: 5rem 0;
+/* ---------- NAVBAR ---------- */
+.header .navbar {
+    display: flex;          /* horizontal */
+    gap: 1.5rem;            /* jarak antar menu */
+    align-items: center;    /* vertical align */
 }
-.header .navbar a{
-    font-size: 1.3rem;
-    margin: .5rem 0;
+
+.header .navbar a {
+    text-decoration: none;
+    color: #000;
+    font-weight: 500;
+    padding: 0.5rem 1rem;
+    border-radius: 5px;
+    transition: background 0.3s, color 0.3s;
 }
-.header .navbar a:hover{
-    color: var(--pink-color);
+
+.header .navbar a:hover {
+    background: #a2c11c33; /* efek hover */
+    color: #000;
 }
+
+/* ---------- RESPONSIVE ---------- */
+@media (max-width: 900px) {
+    header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 1rem;
+    }
+
+    .header .navbar {
+        flex-direction: column;
+        width: 100%;
+    }
+
+    .header .flex .profile {
+        right: 10px; /* agar tidak menempel di pinggir */
+    }
+}
+
 #menu-btn{
     display: none;
 }
@@ -793,8 +847,8 @@ section.home, .slider {
 }
 .for .box h1{
     text-transform: capitalize;
-    font-size: 4rem;
-    color:  #f5117b;
+    font-size: 2rem;
+    color:  #ffffff;
 }
 .service{
     background-image: url('../image/bg-spa-2.jpg');
@@ -877,42 +931,56 @@ section.home, .slider {
 .about-us{
     padding: 0;
 }
-.about-us .img-box{
+
+.box-container {
     display: flex;
-    justify-content: center;
+    gap: 2rem;
     align-items: center;
-    gap: 1.5rem; /* jarak antar gambar */
-    width: 100%;
+    justify-content: center;
+    padding: 2rem;
+}
+.about-us .img-box{
+    position: relative;
+    display: flex;
+    gap: 1rem;
+    flex: 1; /* Ambil proporsi 1 */
+    max-width: 600px; /* Batas maksimal lebar */
+    height: 350px;
     overflow: hidden;
+    border-radius: 15px;
 }
 .about-us .play{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
     width: 80px;
     height: 80px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.8);
+    border: 5px solid var(--main-color);
+    color: var(--main-color);
     display: flex;
     justify-content: center;
     align-items: center;
-    position: absolute;
-    left: 46%;
-    top: 40%;
-    border-radius: 50%;
-    font-size: 3rem;
-    background: #fff;
-    color: var(--main-color);
-    border: 10px solid #e7246333;
     cursor: pointer;
+    z-index: 10;
 }
 .about-us .img-box img{
-    width: 100%; 
-    height: 100vh; 
-    object-fit: cover; 
+    width: 50%;  /* Masing-masing gambar separuh container */
+    height: 100%;
+    object-fit: cover;
+    border-radius: 15px;
+    display: block;
 }
 .about-us .img-box .img1,
 .about-us .img-box .img{
     margin: 0;
 }
 .about-us .box{
-    position: 2rem;
-    text-align: center;
+     flex: 1;  /* Ambil proporsi 1 */
+    max-width: 600px;
+    text-align: left;
 }
 .about-us h1{
     margin-bottom: 2rem;
@@ -925,43 +993,406 @@ section.home, .slider {
 }
 .about-us p{
     line-height: 1.7;
-    color: #666;
+    color: #f81fb7;
     margin-bottom: 3rem;
 }
 .about-us .btn{
-    margin: 2rem;
+    margin: 1rem;
 }
 .vid-banner{
     position: relative;
+    width: 100%;
+    height: 60vh;  /* Atur tinggi video banner */
+    overflow: hidden;
 }
 .vid-banner .overlay{
     position: absolute;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    top: 0;
-    background: #000;
+    left: 0; right: 0; top: 0; bottom: 0;
+    background: rgba(0, 0, 0, 0.4);
+    z-index: 2;
 }
 .vid-banner .detail{
+     position: absolute;
+    top: 35%;
     width: 100%;
     text-align: center;
-    position: absolute;
-    top: 35%;
+    color: #fff;
+    z-index: 3;
 }
 .vid-banner .detail h1{
     font-size: 4rem;
-    text-transform: capitalize;
-    color: #fff;
     margin-bottom: 1rem;
 }
 .vid-banner .detail p{
-    font-size: 41.5rem;
-    color: #ccc;
-    line-height: 1.7;
+    font-size: 1rem;
+    line-height: 1;
+    color: #f81fb7;
+    margin: 1rem 0;
 }
 .vid-banner video{
-    width: 100%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    min-width: 100%;
+    min-height: 100%;
+    transform: translate(-50%, -50%);
+    z-index: 1;
+    object-fit: cover;
 }
+.vid-banner .flex-btn{
+    align-items: center;
+    justify-content: center;
+}
+.center {
+    padding: 8% 0;
+    background-image: url('../image/bg0.jpg');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+}
+
+.center .box-container {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    gap: 3rem; 
+    padding: 2rem;
+}
+
+.center .box-container .box {
+    text-align: center;
+    text-transform: capitalize;
+    background: none; 
+    line-height: 1.8;
+}
+
+.center .box-container .box img {
+    width: 7rem;
+    height: 7rem;
+    border-radius: 50%;
+    display: block;
+    margin: 0 auto 1rem auto; 
+    object-fit: cover;
+    border: 3px solid var(--main-color);/
+}
+
+.center .box-container .box h1 {
+    font-size: 1.6rem;
+    font-weight: 500;
+    margin-bottom: 0.3rem;
+}
+
+.center .box-container .box span {
+    font-size: 1.2rem;
+    font-style: italic;
+    color: var(--main-color);
+}
+.offer {
+    background-image: url('../image/bg2.jpg');
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+    min-height: 100vh;
+
+    display: flex;
+    justify-content: center; 
+    align-items: center;     
+
+    position: relative;
+    text-align: center;
+}
+
+.offer .detail {
+    position: relative;
+    max-width: 60vw;
+    text-align: center;
+    z-index: 1;
+}
+
+.offer .detail h1 {
+    text-transform: capitalize;
+    font-size: 3rem;
+    color: #f81fb7;
+    margin-bottom: 1rem;
+}
+
+.offer .detail p {
+    color: #f81fb7;
+    font-size: 1.2rem;
+    line-height: 1.6;
+    margin: 0 auto;
+}
+.accordion {
+    background-image: url('../image/bg2.jpg');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+}
+.accordion .contentBox {
+    position: relative;
+    margin: 10px 20px;
+}
+.accordion .contentBox .label {
+    position: relative;
+    padding: 15px;
+    color: #000;
+    cursor: pointer;
+    font-size: 1.3rem;
+    background: rgba(255, 20, 147, 0.2); /* Nuansa pink */
+    margin: 1rem 0;
+}
+.accordion .contentBox .label:hover {
+    background: rgba(255, 20, 147, 0.1); /* Hover pink lebih transparan */
+}
+.accordion .contentBox .label::before {
+    content: "+";
+    position: absolute;
+    top: 50%;
+    right: 20px;
+    transform: translateY(-50%);
+    font-size: 1.5rem;
+}
+.accordion .contentBox.active .label::before {
+    content: "−"; 
+}
+.accordion .contentBox .content {
+    position: relative;
+    background: #ecf2f9; 
+    height: 0;
+    overflow: hidden;
+    transition: height 0.5s ease; 
+    overflow-y: auto;
+    line-height: 1.7;
+    font-size: 16px;
+}
+.accordion .contentBox.active .content {
+    height: auto; 
+    padding: 2rem 1rem;
+}
+.accordion img {
+    margin-bottom: -1.2rem;
+}
+/*----------about section-----------*/
+.who-container .box-container {
+    display: flex;
+    align-items: center;        
+    justify-content: space-between;
+    gap: 2rem;
+    flex-wrap: wrap;            
+    padding: 5%;
+}
+.who-container .box {
+    flex: 1;                     
+    min-width: 200px;            
+}
+.who-container .box .flex-btn {
+    display: flex;
+    gap: 1rem;
+    margin-top: 1rem;
+}
+.who-container .img-box {
+    flex: 1;                   
+    min-width: 350px;
+    min-height: 400px;
+}
+.who-container .img-box .img {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+    border-radius: 2px;
+}
+.spa-offer{
+    width: 100%;
+    min-height: 70vh;
+    background-image: url('../image/bg-spa-5.jpg');
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 5%;
+}
+.spa-offer .detail{
+    color: #fff;
+    text-transform: capitalize;
+    text-align: center;
+}
+.spa-offer .detail span{
+    font-size: 2rem;
+    font-style: italic;
+}
+.spa-offer .detail h2{
+    font-size: 2.5rem;
+}
+.spa-offer .detail h1{
+    font-size: 5rem;
+}
+.advntages{
+    width: 100%;
+    background-image: url('../image/bg-spa-2.jpg');
+    background-position: center center;
+    background-attachment: fixed;
+    padding: 5%;
+}
+.advntages .detail{
+    max-width: 900px;
+}
+.advntages .detail .box{
+    text-align: center;
+}
+.advntages .detail.box i{
+    width: 60px;
+    height: 50px;
+    line-height: 50px;
+    text-align: center;
+    font-size: 2rem;
+    color: #fff;
+    background: #541f5c;
+    border-radius: 50%;
+}
+.advntages .detail .box h1{
+    font-size: 2rem;
+    font-weight: 500;
+    margin: 1rem 0;
+    text-transform: capitalize;
+}
+.massage-offer {
+    width: 100%;
+    min-height: 80vh;
+    background-image: url('../image/sub-banner.jpg');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    padding: 5%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.massage-offer .detail{
+    color: #fff;
+    text-transform: capitalize;
+    text-align: center;
+}
+.massage-offer .detail span{
+    font-size: 2rem;
+    font-style: italic;
+}
+.massage-offer .detail p{
+    font-size: 1rem;
+    line-height: 1.7;
+    margin: 1rem;
+}
+.massage-offer .detail h1{
+    font-size: 5rem;
+    text-transform: capitalize;
+}
+.spa-service {
+    padding: 8%;
+}
+
+.spa-service .box-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(28rem, 1fr));
+    gap: 2rem;
+    align-items: start; /* semua box rata atas */
+}
+
+.spa-service .box-container .box {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between; /* teks dan gambar rata */
+    height: 100%; /* pastikan semua box sama tinggi */
+    background: #fff;
+    padding: 1rem;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+
+.spa-service .box-container .box img {
+    width: 100%;
+    height: 250px; /* ratakan semua gambar */
+    object-fit: cover; /* agar gambar tidak terdistorsi */
+    border-radius: 10px;
+    margin-bottom: 1rem;
+}
+
+.spa-service .box-container .box h1 {
+    font-size: 1.5rem;
+    margin: 0.5rem 0;
+}
+
+.spa-service .box-container .box .divider {
+    text-align: center;
+    padding: 0.5rem 0;
+}
+
+.spa-service .box-container .box .separator {
+    margin: 0 auto;
+    width: 100px;
+    height: 2px;
+    background: #d35ebe;
+}
+
+.spa-service .box-container .box p {
+    font-size: 1.2rem;
+    margin: 0.5rem 0;
+}
+
+.spa-service .box-container .box .price {
+    font-size: 1.5rem;
+    margin-top: 0.5rem;
+}
+
+.spa-service .box-container .box .price del {
+    text-decoration: line-through;
+    color: red;
+    margin-right: 0.5rem;
+    font-size: 1.3rem;
+}
+.offe-1{
+    width: 100%;
+    min-height: 100vh;
+    background-image: url('../image/cople-bg.jpg');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    padding: 5%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+.offe-1 .detail{
+    max-width: 50vw;
+}
+.offe-1 .detail h1{
+    font-weight: bold;
+    color: crimson;
+    text-transform: capitalize;
+    margin-bottom: 1rem;
+    font-size: 3.6rem;
+}
+.offe-1 .detail span{
+    font-size: 5rem;
+}
+.offe-1 .detail p{
+    line-height: 1.7;
+    font-size: 23px;
+    color: rgb(255, 255, 255);
+    font-style: italic;
+}
+
+
+
+
+
+
+
+
+
 
 
 
@@ -998,5 +1429,29 @@ section.home, .slider {
     .header.navbar a:hover{
         background: var(--pink-color);
         color: #000;
+    }
+    /* Navbar container */
+    .header .top-navbar ul {
+        display: flex;        /* membuat <li> sejajar horizontal */
+        gap: 20px;            /* jarak antar menu */
+        list-style: none;     /* hilangkan bullet default */
+        margin: 0;
+        padding: 0;
+        align-items: center;  /* rata tengah secara vertikal */
+    }
+
+        /* Link menu */
+    .header .top-navbar ul li a {
+        text-decoration: none;
+        color: #000;
+        font-weight: 500;
+        padding: 0.5rem 1rem;
+        transition: background 0.3s, color 0.3s;
+    }
+
+    /* Efek hover */
+    header .top-navbar ul li a:hover {
+        background: #a2c11c33;
+        border-radius: 5px;
     }
 }

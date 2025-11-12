@@ -3,22 +3,31 @@
 include_once __DIR__ . '/connect.php';
 
 // Cek apakah user login
-$user_id = isset($_COOKIE['user_id']) ? $_COOKIE['user_id'] : '';
+$id_Pelanggan = isset($_COOKIE['id_pelanggan']) ? $_COOKIE['id_pelanggan'] : '';
+
+// Inisialisasi variabel agar tidak Undefined
+$fetch_profile = null;
+
+// Ambil data user jika login
+if ($id_Pelanggan) {
+    $select_profile = $conn->prepare("SELECT * FROM pelanggan WHERE id_pelanggan = ?");
+    $select_profile->execute([$id_Pelanggan]);
+    $fetch_profile = $select_profile->fetch(PDO::FETCH_ASSOC);
+}
 ?>
 
 <header class="header">
   <section class="flex">
     <!-- LOGO + NAMA KLINIK -->
-    <a href="index.php" class="logo">
-      <img src="image/logo.png" alt="Beauty Clinic Logo">
-      <span class="clinic-name">Beauty Clinic</span>
-    </a>
-
-    <!-- SEARCH FORM -->
-    <form action="search_service.php" method="post" class="search-from">
-      <input type="text" name="search_service" placeholder="Search service..." maxlength="100" required>
-      <button type="submit" class="bx bx-search-alt-2"></button>
-    </form>
+    <a href="index.php" class="logo"><img src="image/logo.png" alt="Beauty Clinic Logo"><span class="clinic-name">Beauty Clinic</span></a>
+    <nav class="navbar">
+      <a href="home.php">home</a>
+      <a href="about.php">about us</a>
+      <a href="services.php">services</a>
+      <a href="team.php">team</a>
+      <a href="book_appointment.php">appointment</a>
+      <a href="contact.php">contact</a>
+    </nav>
 
     <!-- ICONS KANAN -->
     <div class="icons">
@@ -28,31 +37,23 @@ $user_id = isset($_COOKIE['user_id']) ? $_COOKIE['user_id'] : '';
     </div>
 
     <!-- PROFIL / LOGIN-REGISTER BOX -->
-<div class="profile">
-  <?php 
-  if ($user_id) {
-    $select_profile = $conn->prepare("SELECT * FROM pelanggan WHERE id_pelanggan = ?");
-    $select_profile->execute([$user_id]);
-    $fetch_profile = $select_profile->fetch(PDO::FETCH_ASSOC);
-  ?>
-    <!-- Logo / Foto User -->
-    <img src="uploaded_files/<?= htmlspecialchars($fetch_profile['foto']); ?>" alt="User Logo">
-    
-    <h3><?= htmlspecialchars($fetch_profile['nama']); ?></h3>
-    <div class="flex-btn">
-      <a href="profile.php" class="btn">View Profile</a>
-      <a href="components/user_logout.php" onclick="return confirm('Logout from this website?');" class="btn">Logout</a>
+    <div class="profile">
+      <?php if ($fetch_profile): ?>
+        <img src="uploaded_files/<?= htmlspecialchars($fetch_profile['foto']); ?>" alt="User Logo">
+        <h3><?= htmlspecialchars($fetch_profile['nama']); ?></h3>
+        <div class="flex-btn">
+          <a href="profile.php" class="btn">View Profile</a>
+          <a href="components/user_logout.php" onclick="return confirm('Logout from this website?');" class="btn">Logout</a>
+        </div>
+      <?php else: ?>
+        <img src="image/layer.jpg" alt="Guest Logo">
+        <h3>Silahkan</h3>
+        <div class="flex-btn">
+          <a href="login.php" class="btn">Login</a>
+          <a href="register.php" class="btn">Registrasi</a>
+        </div>
+      <?php endif; ?>
     </div>
-  <?php } else { ?>
-    <!-- Logo Guest -->
-    <img src="image/layer.jpg" alt="Guest Logo">
-    <h3>Silahkan</h3>
-    <div class="flex-btn">
-      <a href="login.php" class="btn">Login</a>
-      <a href="register.php" class="btn">Registrasi</a>
-    </div>
-  <?php } ?>
-</div>
 
   </section>
 </header>

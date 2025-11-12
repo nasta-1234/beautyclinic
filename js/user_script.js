@@ -103,3 +103,14 @@ slider.addEventListener('click', function(ev){
         resetTimer();
     }
 })
+
+//accordian section
+
+  const labels = document.querySelectorAll('.label');
+        labels.forEach(label => {
+            label.addEventListener('click', () => {
+                const contentBox = label.parentElement;
+                contentBox.classList.toggle('active');
+            });
+        });
+  
