@@ -21,7 +21,7 @@ if ($id_Pelanggan) {
     <!-- LOGO + NAMA KLINIK -->
     <a href="index.php" class="logo"><img src="image/logo.png" alt="Beauty Clinic Logo"><span class="clinic-name">Beauty Clinic</span></a>
     <nav class="navbar">
-      <a href="home.php">home</a>
+      <a href="index.php">home</a>
       <a href="about.php">about us</a>
       <a href="services.php">services</a>
       <a href="team.php">team</a>
@@ -49,8 +49,8 @@ if ($id_Pelanggan) {
         <img src="image/layer.jpg" alt="Guest Logo">
         <h3>Silahkan</h3>
         <div class="flex-btn">
-          <a href="login.php" class="btn">Login</a>
-          <a href="register.php" class="btn">Registrasi</a>
+          <a href="admin/login.php" class="btn">Login</a>
+          <a href="admin/register.php" class="btn">Registrasi</a>
         </div>
       <?php endif; ?>
     </div>

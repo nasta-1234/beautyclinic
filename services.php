@@ -45,7 +45,7 @@ $id_pelanggan = isset($_COOKIE['id_pelanggan']) ? $_COOKIE['id_pelanggan'] : '';
             </div>
             <input type="hidden" name="service_id" value="<?= $fetch_services['id_layanan']; ?>">
             <div class="flex-btn">
-                <a href="appointment.php?get_id=<?= $fetch_services['id']; ?>" cass="btn">buat janji sekarang</a>
+                <a href="appointment.php?get_id=<?= $fetch_services['id_layanan']; ?>" cass="btn">buat janji sekarang</a>
             </div>
         </form>
         <?php

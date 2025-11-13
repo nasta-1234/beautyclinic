@@ -32,7 +32,7 @@ $id_pelanggan = isset($_COOKIE['id_pelanggan']) ? $_COOKIE['id_pelanggan'] : '';
             Kami menghadirkan berbagai layanan perawatan wajah, rambut, dan tubuh dengan teknologi modern serta 
             produk terbaik untuk hasil maksimal. Bersama tim profesional kami, NASTA Beauty Clinic siap membantu kamu 
             tampil lebih percaya diri dan memancarkan pesona alami setiap hari.</p>
-        <a href="service.php" class="btn">melihat layanan</a>
+        <a href="services.php" class="btn">melihat layanan</a>
       </div>
       <div class="right-dec-top"></div>
       <div class="right-dec-bottom"></div>
@@ -49,7 +49,7 @@ $id_pelanggan = isset($_COOKIE['id_pelanggan']) ? $_COOKIE['id_pelanggan'] : '';
             Kami menghadirkan berbagai layanan perawatan wajah, rambut, dan tubuh dengan teknologi modern serta 
             produk terbaik untuk hasil maksimal. Bersama tim profesional kami, NASTA Beauty Clinic siap membantu kamu 
             tampil lebih percaya diri dan memancarkan pesona alami setiap hari.</p>
-        <a href="service.php" class="btn">melihat layanan</a>
+        <a href="services.php" class="btn">melihat layanan</a>
       </div>
       <div class="right-dec-top"></div>
       <div class="right-dec-bottom"></div>
@@ -66,7 +66,7 @@ $id_pelanggan = isset($_COOKIE['id_pelanggan']) ? $_COOKIE['id_pelanggan'] : '';
             Kami menghadirkan berbagai layanan perawatan wajah, rambut, dan tubuh dengan teknologi modern serta 
             produk terbaik untuk hasil maksimal. Bersama tim profesional kami, NASTA Beauty Clinic siap membantu kamu 
             tampil lebih percaya diri dan memancarkan pesona alami setiap hari.</p>
-        <a href="service.php" class="btn">melihat layanan</a>
+        <a href="services.php" class="btn">melihat layanan</a>
       </div>
       <div class="right-dec-top"></div>
       <div class="right-dec-bottom"></div>
@@ -83,7 +83,7 @@ $id_pelanggan = isset($_COOKIE['id_pelanggan']) ? $_COOKIE['id_pelanggan'] : '';
             Kami menghadirkan berbagai layanan perawatan wajah, rambut, dan tubuh dengan teknologi modern serta 
             produk terbaik untuk hasil maksimal. Bersama tim profesional kami, NASTA Beauty Clinic siap membantu kamu 
             tampil lebih percaya diri dan memancarkan pesona alami setiap hari.</p>
-        <a href="service.php" class="btn">melihat layanan</a>
+        <a href="services.php" class="btn">melihat layanan</a>
       </div>
       <div class="right-dec-top"></div>
       <div class="right-dec-bottom"></div>
@@ -100,7 +100,7 @@ $id_pelanggan = isset($_COOKIE['id_pelanggan']) ? $_COOKIE['id_pelanggan'] : '';
             Kami menghadirkan berbagai layanan perawatan wajah, rambut, dan tubuh dengan teknologi modern serta 
             produk terbaik untuk hasil maksimal. Bersama tim profesional kami, NASTA Beauty Clinic siap membantu kamu 
             tampil lebih percaya diri dan memancarkan pesona alami setiap hari.</p>
-        <a href="service.php" class="btn">melihat layanan</a>
+        <a href="services.php" class="btn">melihat layanan</a>
       </div>
       <div class="right-dec-top"></div>
       <div class="right-dec-bottom"></div>
@@ -176,7 +176,7 @@ $id_pelanggan = isset($_COOKIE['id_pelanggan']) ? $_COOKIE['id_pelanggan'] : '';
     </div>
     <div class="detail">
         <p>Penata gaya utama kami yang sangat berbakat akan terhubung dengan Anda secara personal, menggabungkan kreativitas dan keterampilan mereka untuk menciptakan gaya alami siap pakai sekaligus memberikan perawatan wajah, perawatan tubuh, serta perawatan rambut dan kulit kepala yang menonjolkan individualitas dan gaya hidup Anda.</p>
-        <a href="service.php" class="btn">melihat layanan kami</a>
+        <a href="services.php" class="btn">melihat layanan kami</a>
     </div>
 </div>
 <img src="image/sub-banner.jpg" class="sub-banner">
@@ -190,7 +190,7 @@ $id_pelanggan = isset($_COOKIE['id_pelanggan']) ? $_COOKIE['id_pelanggan'] : '';
                     <span>jangkauan luas </span>
                     <h1>spa & pijat</h1>
                     <p>Rasakan relaksasi menyeluruh dengan perawatan spa terbaik kami.</p>
-                    <div href="service.php" class="btn">melihat layanan kami</div>
+                    <div href="services.php" class="btn">melihat layanan kami</div>
                 </div>
             </div>
             <div class="box-detail">
@@ -199,7 +199,7 @@ $id_pelanggan = isset($_COOKIE['id_pelanggan']) ? $_COOKIE['id_pelanggan'] : '';
                     <span>jangkauan luas</span>
                     <h1>Perawatan Laser</h1>
                     <p>Solusi modern untuk kulit sehat dan bercahaya.</p>
-                    <div href="service.php" class="btn">melihat layanan kami</div>
+                    <div href="services.php" class="btn">melihat layanan kami</div>
                 </div>
             </div>
         </div>
