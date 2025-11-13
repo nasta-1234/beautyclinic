@@ -62,7 +62,7 @@ $id_pelanggan = isset($_COOKIE['id_pelanggan']) ? $_COOKIE['id_pelanggan'] : '';
         <div class="heading">
             <span> keuntungan </span>
             <h1>mengapa orang memilih kami</h1>
-            <img src="image/layer.jpg" width="100">
+            <img src="image/logo.png" width="100">
         </div>
         <div class="box-container">
             <div class="box">
@@ -100,7 +100,7 @@ $id_pelanggan = isset($_COOKIE['id_pelanggan']) ? $_COOKIE['id_pelanggan'] : '';
     <div class="heading">
         <span>untuk klien kami</span>
         <h1>Layanan Spa Berkualitas Tinggi untuk Kenyamanan dan Kesehatan Anda</h1>
-        <img src="image/layer.jpg" width="100">
+        <img src="image/logo.png" width="100">
         <p>Nikmati perawatan spa eksklusif dengan tenaga ahli profesional dan fasilitas terbaik, khusus untuk Anda.</p>
     </div>
     <div class="box-container">
@@ -145,21 +145,100 @@ $id_pelanggan = isset($_COOKIE['id_pelanggan']) ? $_COOKIE['id_pelanggan'] : '';
     <div class="box-container">
         <div class="box">
             <div class="heding">
-                <span>about company</span>
+                <span>tentang perusahaan</span>
                 <h1>NASTA Beauty Clinic</h1>
             </div>
+            <p>NASTA Beauty Clinic merupakan perusahaan yang bergerak di 
+                bidang kecantikan dan perawatan tubuh yang berfokus pada pelayanan 
+                profesional serta kualitas terbaik. Kami menyediakan berbagai layanan perawatan 
+                wajah, rambut, dan tubuh dengan didukung oleh tenaga ahli berpengalaman serta 
+                penggunaan produk berkualitas tinggi. NASTA Beauty Clinic berkomitmen untuk menjadi mitra 
+                terpercaya dalam menjaga dan meningkatkan penampilan serta rasa percaya diri pelanggan melalui 
+                pelayanan yang aman, nyaman, dan berkualitas.</p>
+                <div class="flex-btn">
+                    <a class="btn">jelajahi lebih lanjut</a>
+                    <a class="btn">Hubungi kami</a>
+                </div>
         </div>
     </div>
 </div>
+<div class="testimonial">
+    <div class="heading">
+        <h1>Testimonial</h1>
+        <img src="image/logo.png">
+    </div>
+    <div class="container">
+        <div class="testimonial-item active">
+            <i class="bx bx-quote-right" id="quote"></i>
+            <img src="image/ourteam.png">
+            <h1>Aliza Shaquena Iqala</h1>
+            <p>Pelayanannya super ramah dan tempatnya nyaman banget! Aku suka banget sama 
+                hasil perawatan wajahnya, kulitku jadi lebih glowing dan segar. Pokoknya NASTA Beauty Clinic selalu jadi pilihan utamaku untuk me time.</p>
+        </div>
+        <div class="testimonial-item">
+            <i class="bx bx-quote-right" id="quote"></i>
+            <img src="image/ourteam0.png">
+            <h1>Elmira Revalina Putri</h1>
+            <p>Setiap datang ke NASTA Beauty Clinic selalu disambut dengan senyum hangat. Terapisnya profesional, hasil perawatan benar-benar terasa, dan suasananya bikin rileks. Sangat direkomendasikan buat yang butuh relaksasi setelah kerja!</p>
+        </div>
+        <div class="testimonial-item">
+            <i class="bx bx-quote-right" id="quote"></i>
+            <img src="image/ourteam1.png">
+            <h1>Humaira Adinda Kanaya</h1>
+            <p>Awalnya cuma coba-coba, tapi ternyata hasilnya luar biasa! Kulit wajah jadi lebih lembut dan cerah. Aku juga suka karena tempatnya bersih dan wangi, bikin betah berlama-lama di sana.</p>
+        </div>
+        <div class="testimonial-item">
+            <i class="bx bx-quote-right" id="quote"></i>
+            <img src="image/ourteam2.png">
+            <h1>Neysila Lainkha Kanaya</h1>
+            <p>NASTA Beauty Clinic punya vibe yang elegan dan pelayanan yang berkelas. Produk yang dipakai aman dan berkualitas, hasilnya pun langsung terlihat. Aku sering rekomendasikan ke followers-ku karena benar-benar worth it!</p>
+        </div>
 
+        <!-- Tombol Navigasi -->
+        <div id="rightslide" class="rightslide" ><i class="bx bx-right-arrow-alt"></i></div> 
+        <div id="leftslide" class="leftslide" ><i class="bx bx-left-arrow-alt"></i></div>
+    </div>
+</div>
 
+<script>
+let currentIndex = 0;
+const testimonials = document.querySelectorAll('.testimonial-item');
 
+function showTestimonial(index) {
+  testimonials.forEach((item, i) => {
+    item.classList.remove('active');
+    if (i === index) {
+      item.classList.add('active');
+    }
+  });
+}
 
+function rightSlide() {
+  currentIndex++;
+  if (currentIndex >= testimonials.length) {
+    currentIndex = 0;
+  }
+  showTestimonial(currentIndex);
+}
 
+function leftSlide() {
+  currentIndex--;
+  if (currentIndex < 0) {
+    currentIndex = testimonials.length - 1;
+  }
+  showTestimonial(currentIndex);
+}
 
+// tombol
+const rightBtn = document.getElementById('rightslide');
+const leftBtn = document.getElementById('leftslide');
 
+if (rightBtn) rightBtn.onclick = rightSlide;
+if (leftBtn) leftBtn.onclick = leftSlide;
 
-
+// tampilkan pertama
+showTestimonial(currentIndex);
+</script>
 
 <?php include 'components/user_footer.php'; ?>
 

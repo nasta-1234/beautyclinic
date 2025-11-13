@@ -1232,7 +1232,8 @@ section.home, .slider {
 .advntages{
     width: 100%;
     background-image: url('../image/bg-spa-2.jpg');
-    background-position: center center;
+    background-position: center;
+    background-size: cover;
     background-attachment: fixed;
     padding: 5%;
 }
@@ -1243,7 +1244,7 @@ section.home, .slider {
     text-align: center;
 }
 .advntages .detail.box i{
-    width: 60px;
+    width: 50px;
     height: 50px;
     line-height: 50px;
     text-align: center;
@@ -1384,6 +1385,183 @@ section.home, .slider {
     color: rgb(255, 255, 255);
     font-style: italic;
 }
+.about{
+    width: 100%;
+    min-height: 100vh;
+    background-image: url('../image/about0.jpg');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+    position: relative;
+    padding: 5%;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+.about .box-container{
+    max-width: 60vw;
+    text-align: center;
+}
+.about p{
+    font-style: italic;
+    line-height: 1.6;
+    font-size: 18px;
+    margin: 1rem 0;
+    text-align: center;
+}
+.testimonial{
+    background-image: url('../image/review.jpg');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    padding: 6%;
+    padding-bottom: 10%;
+}
+.testimonial .container{
+    position: relative;
+    perspective: 1000;
+    padding-top: 2rem;
+}
+.testimonial .container .testimonial-item{
+    position: relative;
+    border-radius: 5rem;
+    background: var(--white-alfa-25);
+    border: 3px solid var(--white-alfa-40);
+    backdrop-filter: var(--backdrop-filter);
+    box-shadow: var(--box-shadow);
+    color: grey;
+    max-width: 50vw;
+    margin: 0 auto;
+    text-align: center;
+    display: none;
+    padding: 2rem;
+    transform-style: preserve-3d;
+    animation: slide .4s linear;
+    outline: 0.1rem solid var(--main-color);
+    outline-offset: -.5rem;
+}
+.testimonial .container .testimonial-item h1{
+    text-transform: capitalize;
+    color: #fff;
+    color: var(--main-color);
+    font-size: 1,5rem;
+    padding-bottom: .5rem;
+}
+#quote{
+    position: absolute;
+    top: -10%;
+    right: 2%;
+    font-size: 5rem;
+    color: var(--main-color);
+}
+.testimonial .container .testimonial-item >*{
+    animation: slideContent .2s linear .4s backwards;
+}
+@keyframes slideContet{
+    0%{
+        transform: scale(.5);
+        opacity: 0;
+    }
+}
+.testimonial .container .testimonial-item.active{
+    display: block;
+}
+.testimonial .container .testimonial-item p{
+    color: #666;
+    line-height: 1.8;
+    padding-bottom: 2rem;
+}
+.testimonial .container .testimonial-item img{
+    width: 140px;
+    height: 140px;
+    border-radius: 50%;
+    padding: .5rem;
+    z-index: 100;
+}
+.testimonial .container .leftslide,
+.testimonial .container .rightslide{
+    position: absolute;
+    top: 40%;
+    transform: translateY(-50%);
+    font-size: 1.5rem;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    color: var(--main-color);
+    cursor:pointer;
+    justify-content: center;
+    display: flex;
+    align-items: center;
+    text-align: center;
+}
+.testimonial .container .rightslide{
+    right: 3rem;
+}
+.testimonial .container .leftslide{
+    left: 3rem;
+}
+
+/*---------service page---------*/
+.services{
+    background-image: url('../image/bg1.jpg');
+    padding: 4% 0;
+}
+.services .box-container{
+    grid-template-columns: repeat(auto-fit, 30rem);
+    gap: 1.5rem;
+    align-items: center;
+    justify-content: center;
+}
+.services p{
+    margin-bottom: 1.5rem;
+}
+.services .box{
+    position: relative;
+    margin: 1rem;
+    overflow: hidden;
+    box-shadow: var(--box-shadow);
+}
+.services .box-container .box .image{
+    transform: scale(1.1);
+}
+.services .box-container .box .content{
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    height: 5rem;
+    background: #fff;
+    padding: 1rem;
+    overflow: hidden;
+    transition: .5s;
+    padding-top: 3rem;
+}
+.services .box-container .box:hover .content{
+    height: 10rem;
+    padding-top: 1rem;
+}
+.services .box-container .box .price{
+    position: absolute;
+    top: 4%;
+    right: 4%;
+    text-transform: capitalize;
+    color: var(--main-color);
+    font-weight: bold;
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+}
+.services .box-container .box .bottom{
+    display: flex;
+    justify-content: space-between;
+    margin: 1rem 0;
+}
+
+
+
+
+
+
 
 
 

@@ -114,3 +114,18 @@ slider.addEventListener('click', function(ev){
             });
         });
   
+//testimonial
+let slides = document.querySelectorAl('.testimonial-item');
+let index = 0;
+
+function rightslide(){
+    slides[index].classList.remove('active');
+    index = (index + 1) % slides.length;
+    slides[index].classList.add('active');
+}
+
+function leftslide(){
+    slides[index].classList.remove('active');
+    index = (index - 1 + slides.length) % slides.length;
+    slides[index].classList.add('active');
+}

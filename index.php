@@ -28,7 +28,10 @@ $id_pelanggan = isset($_COOKIE['id_pelanggan']) ? $_COOKIE['id_pelanggan'] : '';
       <div class="slider-detail">
         <p class="date">12 November 2025</p>
         <h1>Beauty Clinic</h1>
-        <p>Perawatan Kecantikan Terbaik untuk Anda!</p>
+        <p>Selamat datang di NASTA Beauty Clinic, tempat di mana kecantikan dan kenyamanan berpadu sempurna! 
+            Kami menghadirkan berbagai layanan perawatan wajah, rambut, dan tubuh dengan teknologi modern serta 
+            produk terbaik untuk hasil maksimal. Bersama tim profesional kami, NASTA Beauty Clinic siap membantu kamu 
+            tampil lebih percaya diri dan memancarkan pesona alami setiap hari.</p>
         <a href="service.php" class="btn">melihat layanan</a>
       </div>
       <div class="right-dec-top"></div>
@@ -42,7 +45,10 @@ $id_pelanggan = isset($_COOKIE['id_pelanggan']) ? $_COOKIE['id_pelanggan'] : '';
       <div class="slider-detail">
         <p class="date">12 November 2025</p>
         <h1>Beauty Clinic</h1>
-        <p>Perawatan Kecantikan Terbaik untuk Anda!</p>
+        <p>Selamat datang di NASTA Beauty Clinic, tempat di mana kecantikan dan kenyamanan berpadu sempurna! 
+            Kami menghadirkan berbagai layanan perawatan wajah, rambut, dan tubuh dengan teknologi modern serta 
+            produk terbaik untuk hasil maksimal. Bersama tim profesional kami, NASTA Beauty Clinic siap membantu kamu 
+            tampil lebih percaya diri dan memancarkan pesona alami setiap hari.</p>
         <a href="service.php" class="btn">melihat layanan</a>
       </div>
       <div class="right-dec-top"></div>
@@ -56,7 +62,10 @@ $id_pelanggan = isset($_COOKIE['id_pelanggan']) ? $_COOKIE['id_pelanggan'] : '';
       <div class="slider-detail">
         <p class="date">12 November 2025</p>
         <h1>Beauty Clinic</h1>
-        <p>Perawatan Kecantikan Terbaik untuk Anda!</p>
+        <p>Selamat datang di NASTA Beauty Clinic, tempat di mana kecantikan dan kenyamanan berpadu sempurna! 
+            Kami menghadirkan berbagai layanan perawatan wajah, rambut, dan tubuh dengan teknologi modern serta 
+            produk terbaik untuk hasil maksimal. Bersama tim profesional kami, NASTA Beauty Clinic siap membantu kamu 
+            tampil lebih percaya diri dan memancarkan pesona alami setiap hari.</p>
         <a href="service.php" class="btn">melihat layanan</a>
       </div>
       <div class="right-dec-top"></div>
@@ -70,7 +79,10 @@ $id_pelanggan = isset($_COOKIE['id_pelanggan']) ? $_COOKIE['id_pelanggan'] : '';
       <div class="slider-detail">
         <p class="date">12 November 2025</p>
         <h1>Beauty Clinic</h1>
-        <p>Perawatan Kecantikan Terbaik untuk Anda!</p>
+        <p>Selamat datang di NASTA Beauty Clinic, tempat di mana kecantikan dan kenyamanan berpadu sempurna! 
+            Kami menghadirkan berbagai layanan perawatan wajah, rambut, dan tubuh dengan teknologi modern serta 
+            produk terbaik untuk hasil maksimal. Bersama tim profesional kami, NASTA Beauty Clinic siap membantu kamu 
+            tampil lebih percaya diri dan memancarkan pesona alami setiap hari.</p>
         <a href="service.php" class="btn">melihat layanan</a>
       </div>
       <div class="right-dec-top"></div>
@@ -84,7 +96,10 @@ $id_pelanggan = isset($_COOKIE['id_pelanggan']) ? $_COOKIE['id_pelanggan'] : '';
       <div class="slider-detail">
         <p class="date">12 November 2025</p>
         <h1>Beauty Clinic</h1>
-        <p>Perawatan Kecantikan Terbaik untuk Anda!</p>
+        <p>Selamat datang di NASTA Beauty Clinic, tempat di mana kecantikan dan kenyamanan berpadu sempurna! 
+            Kami menghadirkan berbagai layanan perawatan wajah, rambut, dan tubuh dengan teknologi modern serta 
+            produk terbaik untuk hasil maksimal. Bersama tim profesional kami, NASTA Beauty Clinic siap membantu kamu 
+            tampil lebih percaya diri dan memancarkan pesona alami setiap hari.</p>
         <a href="service.php" class="btn">melihat layanan</a>
       </div>
       <div class="right-dec-top"></div>
