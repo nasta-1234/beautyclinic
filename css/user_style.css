@@ -943,8 +943,8 @@ section.home, .slider {
     position: relative;
     display: flex;
     gap: 1rem;
-    flex: 1; /* Ambil proporsi 1 */
-    max-width: 600px; /* Batas maksimal lebar */
+    flex: 1; 
+    max-width: 600px; 
     height: 350px;
     overflow: hidden;
     border-radius: 15px;
@@ -967,7 +967,7 @@ section.home, .slider {
     z-index: 10;
 }
 .about-us .img-box img{
-    width: 50%;  /* Masing-masing gambar separuh container */
+    width: 50%;  
     height: 100%;
     object-fit: cover;
     border-radius: 15px;
@@ -978,7 +978,7 @@ section.home, .slider {
     margin: 0;
 }
 .about-us .box{
-     flex: 1;  /* Ambil proporsi 1 */
+     flex: 1;  
     max-width: 600px;
     text-align: left;
 }
@@ -1002,7 +1002,7 @@ section.home, .slider {
 .vid-banner{
     position: relative;
     width: 100%;
-    height: 60vh;  /* Atur tinggi video banner */
+    height: 60vh;  
     overflow: hidden;
 }
 .vid-banner .overlay{
@@ -1139,11 +1139,10 @@ section.home, .slider {
     color: #000;
     cursor: pointer;
     font-size: 1.3rem;
-    background: rgba(255, 20, 147, 0.2); /* Nuansa pink */
-    margin: 1rem 0;
+    background: rgba(255, 20, 147, 0.2); 
 }
 .accordion .contentBox .label:hover {
-    background: rgba(255, 20, 147, 0.1); /* Hover pink lebih transparan */
+    background: rgba(255, 20, 147, 0.1); 
 }
 .accordion .contentBox .label::before {
     content: "+";
@@ -1297,15 +1296,15 @@ section.home, .slider {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(28rem, 1fr));
     gap: 2rem;
-    align-items: start; /* semua box rata atas */
+    align-items: start; 
 }
 
 .spa-service .box-container .box {
     text-align: center;
     display: flex;
     flex-direction: column;
-    justify-content: space-between; /* teks dan gambar rata */
-    height: 100%; /* pastikan semua box sama tinggi */
+    justify-content: space-between; 
+    height: 100%; 
     background: #fff;
     padding: 1rem;
     border-radius: 10px;
@@ -1314,8 +1313,8 @@ section.home, .slider {
 
 .spa-service .box-container .box img {
     width: 100%;
-    height: 250px; /* ratakan semua gambar */
-    object-fit: cover; /* agar gambar tidak terdistorsi */
+    height: 250px;
+    object-fit: cover; 
     border-radius: 10px;
     margin-bottom: 1rem;
 }
@@ -1503,64 +1502,160 @@ section.home, .slider {
 }
 
 /*---------service page---------*/
-.services{
-    background-image: url('../image/bg1.jpg');
+.services {
+    background-image: url('../image/bg0.jpg');
     padding: 4% 0;
 }
-.services .box-container{
-    grid-template-columns: repeat(auto-fit, 30rem);
-    gap: 1.5rem;
-    align-items: center;
+
+/* Grid 3 kolom */
+.services .box-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
     justify-content: center;
+    align-items: stretch;
+    padding: 0 3rem;
 }
-.services p{
-    margin-bottom: 1.5rem;
-}
-.services .box{
-    position: relative;
-    margin: 1rem;
-    overflow: hidden;
-    box-shadow: var(--box-shadow);
-}
-.services .box-container .box .image{
-    transform: scale(1.1);
-}
-.services .box-container .box .content{
-    position: absolute;
-    left: 0;
-    bottom: 0;
-    width: 100%;
-    height: 5rem;
+
+/* Kotak layanan */
+.services .box {
     background: #fff;
-    padding: 1rem;
+    border-radius: 10px;
+    box-shadow: var(--box-shadow);
     overflow: hidden;
-    transition: .5s;
-    padding-top: 3rem;
+    transition: transform .3s ease;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
 }
-.services .box-container .box:hover .content{
-    height: 10rem;
-    padding-top: 1rem;
+
+.services .box:hover {
+    transform: translateY(-5px);
 }
-.services .box-container .box .price{
+
+/* Gambar layanan */
+.services .box .image {
+    width: 100%;
+    height: 220px;
+    object-fit: cover;
+}
+
+/* Konten di bawah gambar */
+.services .box .content {
+    padding: 1rem;
+    text-align: center;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+/* Judul layanan */
+.services .box .content h3 {
+    font-size: 1.2rem;
+    color: #333;
+    margin-bottom: .5rem;
+}
+
+/* Harga */
+.services .box .harga {
     position: absolute;
-    top: 4%;
-    right: 4%;
-    text-transform: capitalize;
+    top: 10px;
+    right: 10px;
+    background: #fff;
     color: var(--main-color);
     font-weight: bold;
-    font-size: 1.5rem;
-    margin-bottom: 1rem;
+    font-size: 1.2rem;
+    padding: 5px 10px;
+    border-radius: 6px;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.1);
 }
-.services .box-container .box .bottom{
+
+/* Tombol Buat Janji Sekarang */
+.services .box .flex-btn {
+    margin-top: 1rem;
+}
+
+.services .box .flex-btn .btn {
+    display: inline-block;
+    background: #ff66b2;
+    color: #fff;
+    font-size: 1rem;
+    font-weight: bold;
+    padding: 10px 20px;
+    border-radius: 8px;
+    text-transform: capitalize;
+    text-decoration: none;
+    transition: background .3s ease, transform .2s ease;
+}
+
+.services .box .flex-btn .btn:hover {
+    background: #ff3399;
+    transform: scale(1.05);
+}
+
+
+/* Responsif */
+@media (max-width: 992px) {
+    .services .box-container {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    .services .box {
+        height: 330px;
+    }
+}
+
+@media (max-width: 600px) {
+    .services .box-container {
+        grid-template-columns: 1fr;
+    }
+    .services .box {
+        height: 300px;
+    }
+}
+.view-service{
+    background-image: url('../image/bg0.jpg');
+    background-position: center;
+    background-size: cover;
+    position: 100px 6%;
+}
+.view-service .box{
     display: flex;
     justify-content: space-between;
+    align-items: center;
+    line-height: 2;
+    background: var(--white-alfa-25);
+    box-shadow: var(--box-shadow);
+}
+.view-service .box .img-box{
+    flex: 1 1 40rem;
+    padding: 2rem;
+}
+.view-service .box .detail{
+    padding: 1rem;
+    flex: 1 1 40rem;
+}
+.view-service .box img{
+    width: 100%;
+}
+.view-service .box .detail{
     margin: 1rem 0;
 }
-
-
-
-
-
+.view-service .box  .nama{
+    color: var(--main-color);
+    font-weight: bold;
+    font-size: 2rem;
+    text-transform: capitalize;
+}
+.view-service .box .harga{
+    font-size: 2rem;
+    font-weight: bolder;
+    color: var(--pink-color);
+}
+.view-service .box .service-detail{
+    line-height: 1.5;
+    font-size: 1.2rem;
+}
 
 
 
@@ -1610,12 +1705,12 @@ section.home, .slider {
     }
     /* Navbar container */
     .header .top-navbar ul {
-        display: flex;        /* membuat <li> sejajar horizontal */
-        gap: 20px;            /* jarak antar menu */
-        list-style: none;     /* hilangkan bullet default */
+        display: flex;        
+        gap: 20px;            
+        list-style: none;     
         margin: 0;
         padding: 0;
-        align-items: center;  /* rata tengah secara vertikal */
+        align-items: center;  
     }
 
         /* Link menu */
@@ -1633,3 +1728,4 @@ section.home, .slider {
         border-radius: 5px;
     }
 }
+ 

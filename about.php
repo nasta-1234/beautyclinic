@@ -26,7 +26,7 @@ $id_pelanggan = isset($_COOKIE['id_pelanggan']) ? $_COOKIE['id_pelanggan'] : '';
             <p>Beauty Clinic adalah tempat perawatan kecantikan profesional yang menyediakan berbagai layanan mulai dari perawatan wajah,
             perawatan tubuh, hingga perawatan rambut dan kulit kepala. Kami berkomitmen memberikan pelayanan terbaik
             untuk menjaga keindahan dan kepercayaan diri Anda.</p>
-        <span><a href="dashboard.php">Admin</a> <i class="bx bx-right-arrow-alt"></i> about us</span>
+        <span><a href="index.php">home</a> <i class="bx bx-right-arrow-alt"></i> about us</span>
     </div>
 </div>
 <div class="who-container">

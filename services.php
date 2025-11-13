@@ -20,13 +20,13 @@ $id_pelanggan = isset($_COOKIE['id_pelanggan']) ? $_COOKIE['id_pelanggan'] : '';
 <?php include 'components/user_header.php'; ?>
 <div class="banner">
     <div class="detail">
-        <h1>services</h1>
+        <h1>layanan</h1>
             <p>NASTA Beauty Clinic merupakan pusat perawatan kecantikan yang menyediakan layanan lengkap untuk perawatan tubuh, wajah, dan rambut. Dengan dukungan tenaga ahli yang berpengalaman serta penggunaan teknologi dan produk berkualitas tinggi, setiap layanan dirancang untuk memberikan hasil terbaik sesuai dengan kebutuhan pelanggan. Perawatan tubuh difokuskan untuk menjaga kebugaran dan kehalusan kulit, perawatan wajah membantu meningkatkan kesehatan serta kecerahan kulit secara alami, sementara perawatan rambut memberikan nutrisi dan perawatan intensif agar tetap sehat dan berkilau. Dengan suasana klinik yang nyaman dan elegan, NASTA Beauty Clinic berkomitmen untuk menghadirkan pengalaman perawatan yang aman, menyenangkan, dan memuaskan bagi setiap pelanggan.</p>
-        <span><a href="dashboard.php">Admin</a> <i class="bx bx-right-arrow-alt"></i>services</span>
+        <span><a href="index.php">home</a> <i class="bx bx-right-arrow-alt"></i>layanan</span>
     </div>
 </div>
 <div class="services">
-    <div class="boc-container">
+    <div class="box-container">
         <?php
         $select_services = $conn->prepare("SELECT *FROM `layanan` WHERE status = ?");
         $select_services->execute(['active']);
@@ -39,14 +39,15 @@ $id_pelanggan = isset($_COOKIE['id_pelanggan']) ? $_COOKIE['id_pelanggan'] : '';
             <p class="harga"><?= $fetch_services['harga']; ?></p>
             <div class="content">
                 <div class="button">
-                    <div><h3><?= $fetch_services['foto']; ?></h3></div>
-                    <div><a href="view_page.php?pid=<?= $fetch_services['id_layanan']; ?>" class="bx bxs-show"></a></div>
+                    <div><h3><?= $fetch_services['nama'] ?? $fetch_services['foto']; ?></h3></div>
+                    <div><a href="view_page.php?pid=<?= $fetch_services['nama']; ?>" class="bx bxs-show"></a></div>
                 </div>
             </div>
-            <input type="hidden" name="service_id" value="<?= $fetch_services['id_layanan']; ?>">
+            <input type="hidden" name="id_layanan" value="<?= $fetch_services['nama']; ?>">
             <div class="flex-btn">
-                <a href="appointment.php?get_id=<?= $fetch_services['id_layanan']; ?>" cass="btn">buat janji sekarang</a>
+                <a href="appointment.php?get_id=<?= $fetch_services['id_layanan']; ?>" class="btn">Buat Janji Sekarang</a>
             </div>
+
         </form>
         <?php
             }
