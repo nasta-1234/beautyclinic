@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.2.1
+-- version 5.2.0
 -- https://www.phpmyadmin.net/
 --
--- Host: 127.0.0.1
--- Generation Time: Oct 20, 2025 at 01:38 PM
--- Server version: 10.4.32-MariaDB
--- PHP Version: 8.2.12
+-- Host: localhost:3306
+-- Generation Time: Nov 13, 2025 at 01:03 PM
+-- Server version: 8.0.30
+-- PHP Version: 8.1.10
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -28,11 +28,11 @@ SET time_zone = "+00:00";
 --
 
 CREATE TABLE `admin` (
-  `id` varchar(20) NOT NULL,
-  `nama` varchar(50) NOT NULL,
-  `email` varchar(100) NOT NULL,
-  `password` varchar(50) NOT NULL,
-  `foto` varchar(100) NOT NULL
+  `id` varchar(20) COLLATE utf8mb4_general_ci NOT NULL,
+  `nama` varchar(50) COLLATE utf8mb4_general_ci NOT NULL,
+  `email` varchar(100) COLLATE utf8mb4_general_ci NOT NULL,
+  `password` varchar(50) COLLATE utf8mb4_general_ci NOT NULL,
+  `foto` varchar(100) COLLATE utf8mb4_general_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
@@ -40,7 +40,7 @@ CREATE TABLE `admin` (
 --
 
 INSERT INTO `admin` (`id`, `nama`, `email`, `password`, `foto`) VALUES
-('apD5YrVpdu9OCgIPpEmp', 'najwa', 'sabiranajwa76@gmail.com', '7c4a8d09ca3762af61e59520943dc26494f8941b', 'aeBTzMXaJGU2q00ZAO5F.jpg'),
+('apD5YrVpdu9OCgIPpEmp', 'najwa', 'sabiranajwa76@gmail.com', '6f27d168f94af9ed71dab4725a86bde9128974f0', 'aeBTzMXaJGU2q00ZAO5F.jpg'),
 ('lsmqHuLKFmN2o16B8Pid', 'ALFI RESTI ZELIA', 'alfirestizelia@gmail.com', '87b415be0a6e0e827ac6620b18242b4a13508481', 'AmwuyAej8e28XWnGbHs0.jpg');
 
 -- --------------------------------------------------------
@@ -50,18 +50,18 @@ INSERT INTO `admin` (`id`, `nama`, `email`, `password`, `foto`) VALUES
 --
 
 CREATE TABLE `janji` (
-  `id_janji` varchar(20) NOT NULL,
-  `id_user` varchar(20) NOT NULL,
-  `nama` varchar(50) NOT NULL,
-  `no_telp` char(20) NOT NULL,
-  `email` varchar(50) NOT NULL,
-  `id_layanan` varchar(20) NOT NULL,
-  `id_karyawan` varchar(20) NOT NULL,
-  `tanggal` varchar(50) NOT NULL,
-  `jam` varchar(50) NOT NULL,
-  `harga` int(100) NOT NULL,
-  `status` varchar(50) NOT NULL,
-  `status_pembayaran` varchar(50) NOT NULL
+  `id_janji` varchar(20) COLLATE utf8mb4_general_ci NOT NULL,
+  `id_user` varchar(20) COLLATE utf8mb4_general_ci NOT NULL,
+  `nama` varchar(50) COLLATE utf8mb4_general_ci NOT NULL,
+  `no_telp` char(20) COLLATE utf8mb4_general_ci NOT NULL,
+  `email` varchar(50) COLLATE utf8mb4_general_ci NOT NULL,
+  `id_layanan` varchar(20) COLLATE utf8mb4_general_ci NOT NULL,
+  `id_karyawan` varchar(20) COLLATE utf8mb4_general_ci NOT NULL,
+  `tanggal` varchar(50) COLLATE utf8mb4_general_ci NOT NULL,
+  `jam` varchar(50) COLLATE utf8mb4_general_ci NOT NULL,
+  `harga` int NOT NULL,
+  `status` varchar(50) COLLATE utf8mb4_general_ci NOT NULL,
+  `status_pembayaran` varchar(50) COLLATE utf8mb4_general_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
@@ -71,14 +71,14 @@ CREATE TABLE `janji` (
 --
 
 CREATE TABLE `karyawan` (
-  `id_karyawan` varchar(20) NOT NULL,
-  `nama` varchar(50) NOT NULL,
-  `pekerjaan` varchar(100) NOT NULL,
-  `email` varchar(100) NOT NULL,
-  `no_telp` char(20) NOT NULL,
-  `deskripsi_profil` text NOT NULL,
-  `profil` varchar(100) NOT NULL,
-  `status` varchar(50) NOT NULL
+  `id_karyawan` varchar(20) COLLATE utf8mb4_general_ci NOT NULL,
+  `nama` varchar(50) COLLATE utf8mb4_general_ci NOT NULL,
+  `pekerjaan` varchar(100) COLLATE utf8mb4_general_ci NOT NULL,
+  `email` varchar(100) COLLATE utf8mb4_general_ci NOT NULL,
+  `no_telp` char(20) COLLATE utf8mb4_general_ci NOT NULL,
+  `deskripsi_profil` text COLLATE utf8mb4_general_ci NOT NULL,
+  `profil` varchar(100) COLLATE utf8mb4_general_ci NOT NULL,
+  `status` varchar(50) COLLATE utf8mb4_general_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
@@ -98,32 +98,28 @@ INSERT INTO `karyawan` (`id_karyawan`, `nama`, `pekerjaan`, `email`, `no_telp`, 
 --
 
 CREATE TABLE `layanan` (
-  `id_layanan` varchar(20) NOT NULL,
-  `nama` varchar(50) NOT NULL,
-  `harga` int(100) NOT NULL,
-  `foto` varchar(100) NOT NULL,
-  `detail_layanan` text NOT NULL,
-  `kategori` varchar(100) NOT NULL,
-  `status` varchar(100) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+  `id_layanan` varchar(100) NOT NULL,
+  `nama` varchar(100) NOT NULL,
+  `harga` int NOT NULL,
+  `foto` varchar(255) DEFAULT NULL,
+  `detail_layanan` text,
+  `kategori` varchar(100) DEFAULT NULL,
+  `status` enum('active','deactive') DEFAULT 'active'
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 --
 -- Dumping data for table `layanan`
 --
 
 INSERT INTO `layanan` (`id_layanan`, `nama`, `harga`, `foto`, `detail_layanan`, `kategori`, `status`) VALUES
-('1Hq4XeroTy6KlIk9ggJN', 'Hair Treatment', 150, 'fIWsweXYr5I6i8QMzDdE.jpg', 'Menutrisi rambut kering, rusak, atau bercabang.\r\n\r\nBisa menambahkan vitamin atau protein untuk perbaikan rambut.', 'Perawatan Rambut dan Kulit Kepala', 'active'),
-('8m1gBBdHnAHH10msJmMY', 'Manicure & Pedicure', 100, 'qsY7FjqadxfnuTnVM4TZ.jpg', 'Membersihkan, merapikan, dan merawat kuku tangan/kaki.\r\n\r\nBisa ditambahkan cat kuku atau nail art.', 'Perawatan Kuku- Tangan dan Kaki', 'active'),
-('cX8c0ixkU2jUJu8Sy73d', 'Konsultasi Kulit / Analisa Kulit', 500, 'JgEE93gZq0lqwEpXmSUq.jpg', 'Menentukan jenis kulit dan perawatan yang tepat.\r\n\r\nBisa berupa skin test atau saran perawatan harian.', 'Konsultasi dan Produk Perawatan', 'active'),
-('iKQokvl1KGobYcJjz1vN', 'facial treatment', 200, 'woJ4wKNKQrk7gTXrV7hh.jpg', 'Facial treatment adalah perawatan wajah yang bertujuan untuk menjaga kesehatan dan kecantikan kulit dengan membersihkan, menutrisi, serta memperbaiki kondisi kulit wajah. Prosedur ini biasanya meliputi pembersihan mendalam, eksfoliasi untuk mengangkat sel kulit mati, pemijatan wajah untuk melancarkan peredaran darah, serta penggunaan masker dan serum sesuai jenis kulit. Manfaat facial treatment antara lain membantu mengatasi masalah seperti jerawat, kulit kusam, komedo, penuaan dini, dan kulit kering, sehingga wajah tampak lebih segar, lembap, dan bercahaya. Perawatan ini bisa dilakukan di klinik kecantikan atau salon dengan bantuan tenaga profesional agar hasilnya maksimal dan aman.', 'Perawatan Wajah', 'active'),
-('OaOxZj6dyuHPVLvLvosU', 'Hair Spa', 150, 'BKvMVITM3EiGzAr6ycvF.jpg', 'Membersihkan kulit kepala, mengurangi ketombe, dan menyehatkan akar rambut.\r\n\r\nMemberikan relaksasi dan meningkatkan sirkulasi darah di kulit kepala.', 'Perawatan Rambut dan Kulit Kepala', 'active'),
-('SXI7Km3BXHf5FU3wPBDD', 'laser treatment', 350, 'Dqc2RYTlclQJ5PrqEA3k.jpg', 'laser treatment adalah perawatan kecantikan yang menggunakan teknologi laser untuk memperbaiki kondisi kulit atau tubuh, seperti menghilangkan bulu secara permanen, meremajakan kulit, mengurangi jerawat dan bekasnya, serta mencerahkan noda hitam atau flek. Perawatan ini biasanya cepat, minim rasa sakit, dan hasilnya lebih tahan lama dibanding metode manual, meskipun diperlukan beberapa sesi untuk hasil optimal, seringkali dikombinasikan dengan perawatan pendukung seperti serum atau krim khusus.', 'Perawatan Wajah', 'active'),
-('vlaindL7YuudDLKP5j7m', 'Body Massage', 300, 'E9Rcc5aWCgsGZKUnv3nF.jpg', 'Mengurangi stres, nyeri otot, dan ketegangan tubuh.\r\n\r\nBisa menggunakan minyak aromaterapi atau hot stone.', 'Perawatan Tubuh', 'active'),
-('wIpFggQrjky1FGNICDUn', 'Peeling', 200, 'B0jjdLA3YalIOxCWADNr.jpg', 'Mengangkat sel kulit mati untuk regenerasi kulit lebih cepat.\r\n\r\nMengurangi noda hitam, bekas jerawat, dan kulit kusam.', 'Perawatan Wajah', 'active'),
-('wqn0edPNI8sK22Qx6MRf', 'Produk Perawatan', 500, '6qk3refMuEMOqdQ9TMLI.jpg', 'Serum, cream, masker, lulur, dan perawatan rambut yang direkomendasikan oleh klinik.', 'Konsultasi dan Produk Perawatan', 'active'),
-('WVYJx5JkMwuNP31w3mBG', 'botox', 500, '4GDlXmrVYkCD6L5Pruog.jpg', 'nclchkchskc,sdhx', 'Perawatan Wajah', 'active'),
-('XHYBVrpWCaHV4l9imOCd', 'Spa Kaki', 100, 'u1bwHKITOQe4nSfymbxz.jpg', 'Meredakan pegal, melembapkan kulit, dan meningkatkan sirkulasi.', 'Perawatan Rambut dan Kulit Kepala', 'active'),
-('Y60ycZ3f28RdNkHfiDIO', 'Body Whitening', 300, 'TQQmnA8Ulj8yelOqH6Nv.png', 'Perawatan untuk mencerahkan kulit tubuh secara bertahap.\r\n\r\nBiasanya berupa lulur khusus atau perawatan laser ringan.', 'Perawatan Tubuh', 'active');
+('layanan_6900b97a764187.53482060', 'Facial Glow Treatment', 150, 'foto_6900b97a760205.36696210.jpg', 'Perawatan wajah untuk mengangkat sel kulit mati, membersihkan komedo, dan mencerahkan kulit dengan masker vitamin C. Cocok untuk semua jenis kulit.', 'Perawatan Wajah', 'active'),
+('layanan_6900c49c113f60.22139476', 'Peeling Facial Brightening', 200, 'foto_6900c49c10e1f7.77090093.jpg', 'Menggunakan bahan peeling alami untuk mengangkat sel kulit mati dan mempercepat regenerasi kulit. Hasilnya kulit tampak lebih halus dan cerah', 'Perawatan Wajah', 'active'),
+('layanan_6900c4d3c1e7d9.91071165', 'Body Spa & Massage', 250, 'foto_6900c4d3c1add0.44443231.jpg', 'Relaksasi seluruh tubuh dengan pijat aromaterapi, lulur, dan mandi susu untuk melembutkan kulit dan mengurangi stres', 'Perawatan Tubuh', 'active'),
+('layanan_6900c4fb27d7e4.72805253', 'Manicure-Pedicure Spa', 170, 'foto_6900c4fb279043.16526802.jpg', 'Membersihkan, menghaluskan, dan melembutkan kulit kaki dan tangan dengan rendaman aromaterapi serta scrub alami.', 'Perawatan Tubuh', 'deactive'),
+('layanan_6900c523873a56.83297906', 'Konsultasi Dokter Kulit & Estetika', 100, 'foto_6900c52386efc0.30241720.jpg', 'Pemeriksaan kulit oleh dokter estetika profesional untuk menentukan jenis perawatan yang sesuai dengan kondisi kulit.', 'Perawatan Wajah', 'active'),
+('layanan_6900c5508646c2.18072263', 'Whitening Injection', 400, 'foto_6900c55085ee98.83930709.png', 'Menutrisi kulit dari dalam menggunakan vitamin C dan kolagen untuk mencerahkan serta memperbaiki elastisitas kulit.', 'Perawatan Tubuh', 'active'),
+('layanan_6900c57720b244.96339813', 'Natural Skincare Product Package', 200, 'foto_6900c577205d00.12051472.jpg', 'Paket perawatan kulit harian berisi day cream, night cream, toner, dan serum berbahan alami.', 'Perawatan Wajah', 'active'),
+('layanan_6900c5b18aef21.65291845', 'Perawatan Wajah Anti-Aging', 300, 'foto_6900c5b18aa204.64247662.jpg', 'Menggunakan teknologi dan serum khusus untuk mengurangi garis halus, mencerahkan wajah, dan menjaga elastisitas kulit.', 'Perawatan Wajah', 'active');
 
 -- --------------------------------------------------------
 
@@ -132,11 +128,11 @@ INSERT INTO `layanan` (`id_layanan`, `nama`, `harga`, `foto`, `detail_layanan`, 
 --
 
 CREATE TABLE `pelanggan` (
-  `id_pelanggan` varchar(20) NOT NULL,
-  `nama` varchar(50) NOT NULL,
-  `email` varchar(100) NOT NULL,
-  `password` varchar(50) NOT NULL,
-  `foto` varchar(100) NOT NULL
+  `id_pelanggan` varchar(20) COLLATE utf8mb4_general_ci NOT NULL,
+  `nama` varchar(50) COLLATE utf8mb4_general_ci NOT NULL,
+  `email` varchar(100) COLLATE utf8mb4_general_ci NOT NULL,
+  `password` varchar(50) COLLATE utf8mb4_general_ci NOT NULL,
+  `foto` varchar(100) COLLATE utf8mb4_general_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
@@ -146,12 +142,12 @@ CREATE TABLE `pelanggan` (
 --
 
 CREATE TABLE `pesanan` (
-  `id_pesanan` varchar(50) NOT NULL,
-  `id_user` varchar(50) NOT NULL,
-  `nama` varchar(50) NOT NULL,
-  `email` varchar(100) NOT NULL,
-  `subjek` varchar(100) NOT NULL,
-  `pesanan` text NOT NULL
+  `id_pesanan` varchar(50) COLLATE utf8mb4_general_ci NOT NULL,
+  `id_user` varchar(50) COLLATE utf8mb4_general_ci NOT NULL,
+  `nama` varchar(50) COLLATE utf8mb4_general_ci NOT NULL,
+  `email` varchar(100) COLLATE utf8mb4_general_ci NOT NULL,
+  `subjek` varchar(100) COLLATE utf8mb4_general_ci NOT NULL,
+  `pesanan` text COLLATE utf8mb4_general_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
