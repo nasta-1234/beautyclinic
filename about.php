@@ -22,19 +22,19 @@ $id_pelanggan = isset($_COOKIE['id_pelanggan']) ? $_COOKIE['id_pelanggan'] : '';
 <!-- home section start -->
  <div class="banner">
     <div class="detail">
-        <h1>about us</h1>
+        <h1>Tentang Kami</h1>
             <p>Beauty Clinic adalah tempat perawatan kecantikan profesional yang menyediakan berbagai layanan mulai dari perawatan wajah,
             perawatan tubuh, hingga perawatan rambut dan kulit kepala. Kami berkomitmen memberikan pelayanan terbaik
             untuk menjaga keindahan dan kepercayaan diri Anda.</p>
-        <span><a href="index.php">home</a> <i class="bx bx-right-arrow-alt"></i> about us</span>
+        <span><a href="index.php">home</a> <i class="bx bx-right-arrow-alt"></i> Tentang Kami </span>
     </div>
 </div>
 <div class="who-container">
     <div class="box-container">
         <div class="box">
             <div class="heading">
-                <span>siapa kita</span>
-                <h1>kami bersemangat untuk membuat yang indah menjadi lebih indah</h1>
+                <span>siapa kami?????</span>
+                <h1>kami sangat bersemangat untuk membuat yang indah menjadi lebih indah</h1>
                 <img src="image/logo.png" width="100">
             </div>
             <p></p>
