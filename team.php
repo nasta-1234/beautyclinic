@@ -34,21 +34,7 @@ $id_pelanggan = isset($_COOKIE['id_pelanggan']) ? $_COOKIE['id_pelanggan'] : '';
         if ($select_services->rowCount() > 0){
             while($fetch_services = $select_services->fetch(PDO::FETCH_ASSOC)){
         ?>
-        <form action="" class="box">
-            <img src="uploaded_files/<?= $fetch_services['foto']; ?>" class="image">
-            <p class="harga"><?= $fetch_services['harga']; ?></p>
-            <div class="content">
-                <div class="button">
-                    <div><h3><?= $fetch_services['nama'] ?? $fetch_services['foto']; ?></h3></div>
-                    <div><a href="view_page.php?pid=<?= $fetch_services['nama']; ?>" class="bx bxs-show"></a></div>
-                </div>
-            </div>
-            <input type="hidden" name="id_layanan" value="<?= $fetch_services['nama']; ?>">
-            <div class="flex-btn">
-                <a href="appointment.php?get_id=<?= $fetch_services['id_layanan']; ?>" class="btn">Buat Janji Sekarang</a>
-            </div>
-
-        </form>
+        
         <?php
             }
         }else{
