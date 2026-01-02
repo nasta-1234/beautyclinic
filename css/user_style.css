@@ -1730,138 +1730,130 @@ section.home, .slider {
 }
  
 /* =========================
-   TEAM SECTION (LIST DOKTER)
+   TEAM SECTION
 ========================= */
 
 .team {
-    padding: 5rem 2rem;
-    background: #fffaf8;
+    padding: 4rem 2rem;
+    background: linear-gradient(135deg, #fde4ec, #fff);
 }
 
-.team .heading {
+.heading {
     text-align: center;
-    margin-bottom: 4rem;
+    margin-bottom: 3rem;
 }
 
-.team .heading h2 {
-    font-size: 2.8rem;
-    color: #333;
-}
-
-.team .heading p {
-    font-size: 1.1rem;
-    color: #999;
-}
-
-.team .box-container {
+.team-container {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-    gap: 2.5rem;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 2rem;
     max-width: 1200px;
     margin: auto;
 }
 
-.team .box {
+.team-card {
     background: #fff;
-    border-radius: 18px;
-    text-align: center;
-    padding: 2.5rem 2rem;
-    transition: all .3s ease;
-    box-shadow: 0 10px 30px rgba(0,0,0,.08);
-    text-decoration: none;
-}
-
-.team .box:hover {
-    transform: translateY(-10px);
-}
-
-.team .box img {
-    width: 160px;
-    height: 160px;
-    object-fit: cover;
-    border-radius: 50%;
-    margin-bottom: 1.2rem;
-    border: 6px solid #fde7ef;
-}
-
-.team .box h3 {
-    font-size: 1.4rem;
-    color: #333;
-}
-
-.team .box span {
-    display: block;
-    margin-top: .3rem;
-    font-size: 1rem;
-    color: #e84393;
-}
-
-/* =========================
-   TEAM DETAIL PAGE
-========================= */
-
-.team-detail {
-    padding: 5rem 2rem;
-    background: #fffaf8;
-}
-
-.team-detail .detail-container {
-    max-width: 1200px;
-    margin: auto;
-    display: flex;
-    gap: 4rem;
-    align-items: flex-start;
-}
-
-.team-detail .image img {
-    width: 420px;
-    border-radius: 18px;
-    box-shadow: 0 15px 40px rgba(0,0,0,.15);
-}
-
-.team-detail .content h2 {
-    font-size: 2.5rem;
-    color: #333;
-    margin-bottom: 1rem;
-}
-
-.team-detail .content p {
-    font-size: 1.05rem;
-    color: #555;
-    margin: .5rem 0;
-}
-
-.team-detail .content p b {
-    color: #e84393;
-}
-
-.team-detail .desc {
-    margin-top: 1.5rem;
-    line-height: 1.8;
-    color: #666;
-}
-
-.team-detail .btn {
-    display: inline-block;
-    margin-top: 2rem;
-    padding: .9rem 2.5rem;
-    background: linear-gradient(135deg, #e84393, #f78fb3);
-    color: #fff;
-    border-radius: 30px;
-    font-size: 1rem;
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(0,0,0,.1);
     transition: .3s;
 }
 
-.team-detail .btn:hover {
-    background: #e84393;
+.team-card:hover {
+    transform: translateY(-8px);
+}
+
+.team-link {
+    text-decoration: none;
+    color: inherit;
+    display: block;
+}
+
+/* FRAME FOTO */
+.team-img {
+    width: 100%;
+    height: 280px;
+    overflow: hidden;
+}
+
+/* FOTO TIDAK MEMBESAR */
+.team-img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* INFO */
+.team-info {
+    padding: 1.2rem;
+    text-align: center;
+}
+
+.team-info h3 {
+    color: #e91e63;
+    margin-bottom: .3rem;
+}
+
+.team-info span {
+    font-size: .9rem;
+    color: #777;
 }
 
 /* =========================
-   RESPONSIVE (MOBILE)
+   TEAM DETAIL
+========================= */
+
+.team-detail {
+    padding: 4rem 2rem;
+    background: linear-gradient(135deg, #fde4ec, #fff);
+}
+
+.detail-container {
+    max-width: 1000px;
+    margin: auto;
+    display: flex;
+    gap: 3rem;
+    align-items: center;
+}
+
+.detail-container img {
+    width: 350px;
+    border-radius: 20px;
+    box-shadow: 0 15px 40px rgba(0,0,0,.2);
+}
+
+.content h2 {
+    color: #e91e63;
+}
+
+.btn-back {
+    display: inline-block;
+    margin-top: 1rem;
+    padding: .6rem 1.5rem;
+    background: #e91e63;
+    color: #fff;
+    border-radius: 25px;
+    text-decoration: none;
+}
+
+@media (max-width: 900px) {
+    .detail-container {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .detail-container img {
+        width: 100%;
+        max-width: 350px;
+    }
+}
+
+
+/* =========================
+   RESPONSIVE
 ========================= */
 
 @media (max-width: 900px) {
-
     .team-detail .detail-container {
         flex-direction: column;
         text-align: center;
@@ -1873,4 +1865,3 @@ section.home, .slider {
         margin: auto;
     }
 }
-

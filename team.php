@@ -127,3 +127,37 @@ include 'components/connect.php';
 </body>
 </html>
 
+<?php
+include 'config/db.php';
+$query = mysqli_query($conn, "SELECT * FROM team WHERE status='active'");
+?>
+
+<section class="team">
+    <div class="heading">
+        <h2>Meet Our Experts</h2>
+        <p>Profesional, berpengalaman, dan terpercaya</p>
+    </div>
+
+    <div class="team-container">
+
+        <?php while($row = mysqli_fetch_assoc($query)) { ?>
+            <div class="team-card">
+
+                <a href="team-detail.php?id=<?= $row['id']; ?>" class="team-link">
+
+                    <div class="team-img">
+                        <img src="assets/images/team/<?= $row['foto']; ?>" alt="<?= $row['nama']; ?>">
+                    </div>
+
+                    <div class="team-info">
+                        <h3><?= $row['nama']; ?></h3>
+                        <span><?= $row['profesi']; ?></span>
+                    </div>
+
+                </a>
+
+            </div>
+        <?php } ?>
+
+    </div>
+</section>

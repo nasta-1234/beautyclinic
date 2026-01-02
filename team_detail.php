@@ -52,3 +52,31 @@ $row = $select->fetch(PDO::FETCH_ASSOC);
 <?php include 'components/user_footer.php'; ?>
 </body>
 </html>
+
+<<?php
+include 'config/db.php';
+
+$id = $_GET['id'];
+$query = mysqli_query($conn, "SELECT * FROM team WHERE id='$id'");
+$data = mysqli_fetch_assoc($query);
+?>
+
+<section class="team-detail">
+    <div class="detail-container">
+
+        <div class="image">
+            <img src="assets/images/team/<?= $data['foto']; ?>">
+        </div>
+
+        <div class="content">
+            <h2><?= $data['nama']; ?></h2>
+            <h4><?= $data['profesi']; ?> - <?= $data['gelar']; ?></h4>
+
+            <p><strong>Email:</strong> <?= $data['email']; ?></p>
+            <p><strong>Alamat:</strong> <?= $data['alamat']; ?></p>
+
+            <a href="team.php" class="btn-back">← Kembali</a>
+        </div>
+
+    </div>
+</section>
