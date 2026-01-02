@@ -1,8 +1,6 @@
 <?php
-// Koneksi database
 require_once __DIR__ . '/components/connect.php';
 
-// Cek login
 $id_pelanggan = isset($_COOKIE['id_pelanggan']) ? $_COOKIE['id_pelanggan'] : '';
 ?>
 <!DOCTYPE html>
@@ -10,46 +8,65 @@ $id_pelanggan = isset($_COOKIE['id_pelanggan']) ? $_COOKIE['id_pelanggan'] : '';
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>NASTA Beauty Clinic</title>
+<title>Our Team - NASTA Beauty Clinic</title>
 <link rel="stylesheet" href="css/user_style.css">
 <link href="https://unpkg.com/boxicons@2.1.2/css/boxicons.min.css" rel="stylesheet">
 </head>
 <body>
 
-<!-- Header -->
 <?php include 'components/user_header.php'; ?>
+
+<!-- Banner -->
 <div class="banner">
     <div class="detail">
-        <h1>teams</h1>
-            <p>NASTA Beauty Clinic merupakan pusat perawatan kecantikan yang menyediakan layanan lengkap untuk perawatan tubuh, wajah, dan rambut. Dengan dukungan tenaga ahli yang berpengalaman serta penggunaan teknologi dan produk berkualitas tinggi, setiap layanan dirancang untuk memberikan hasil terbaik sesuai dengan kebutuhan pelanggan. Perawatan tubuh difokuskan untuk menjaga kebugaran dan kehalusan kulit, perawatan wajah membantu meningkatkan kesehatan serta kecerahan kulit secara alami, sementara perawatan rambut memberikan nutrisi dan perawatan intensif agar tetap sehat dan berkilau. Dengan suasana klinik yang nyaman dan elegan, NASTA Beauty Clinic berkomitmen untuk menghadirkan pengalaman perawatan yang aman, menyenangkan, dan memuaskan bagi setiap pelanggan.</p>
-        <span><a href="index.php">home</a> <i class="bx bx-right-arrow-alt"></i>teams</span>
+        <h1>Tim Dokter Kami</h1>
+        <p>
+            NASTA Beauty Clinic didukung oleh tim dokter dan terapis profesional
+            yang berpengalaman di bidang kecantikan dan perawatan kulit.
+        </p>
+        <span>
+            <a href="index.php">home</a>
+            <i class="bx bx-right-arrow-alt"></i>
+            team
+        </span>
     </div>
 </div>
-<div class="services">
+
+<!-- TEAM SECTION -->
+<section class="team">
+    <div class="heading">
+        <h2>Meet Our Experts</h2>
+        <p>Profesional, berpengalaman, dan terpercaya</p>
+    </div>
+
     <div class="box-container">
         <?php
-        $select_services = $conn->prepare("SELECT *FROM `layanan` WHERE status = ?");
-        $select_services->execute(['active']);
+        $select_team = $conn->prepare("SELECT * FROM `team` WHERE status = ?");
+        $select_team->execute(['active']);
 
-        if ($select_services->rowCount() > 0){
-            while($fetch_services = $select_services->fetch(PDO::FETCH_ASSOC)){
+        if ($select_team->rowCount() > 0) {
+            while ($fetch_team = $select_team->fetch(PDO::FETCH_ASSOC)) {
         ?>
-        
+        <div class="box">
+            <img src="uploaded_files/<?= $fetch_team['foto']; ?>" alt="">
+            <h3><?= $fetch_team['nama']; ?></h3>
+            <span><?= $fetch_team['gelar']; ?></span>
+
+            <div class="share">
+                <a href="#" class="bx bxl-instagram"></a>
+                <a href="#" class="bx bxl-facebook"></a>
+                <a href="#" class="bx bxl-whatsapp"></a>
+            </div>
+        </div>
         <?php
             }
-        }else{
-            echo'
-            <div class="empty">
-                <p>Tidak ada layanan yang ditambahkan!</p>
-            </div>
-            ';
+        } else {
+            echo '<p class="empty">Belum ada data team.</p>';
         }
         ?>
     </div>
-</div>
+</section>
 
-
-<!-- Footer -->
 <?php include 'components/user_footer.php'; ?>
 
 <footer>
@@ -58,3 +75,55 @@ $id_pelanggan = isset($_COOKIE['id_pelanggan']) ? $_COOKIE['id_pelanggan'] : '';
 
 </body>
 </html>
+
+<?php
+include 'components/connect.php';
+?>
+
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<title>Our Team</title>
+<link rel="stylesheet" href="css/user_style.css">
+</head>
+<body>
+
+<?php include 'components/user_header.php'; ?>
+
+<section class="team">
+
+    <div class="heading">
+        <h2>Meet Our Experts</h2>
+        <p>Profesional, berpengalaman, dan terpercaya</p>
+    </div>
+
+    <div class="box-container">
+
+    <?php
+    $select_team = $conn->prepare("SELECT * FROM team WHERE status = 'active'");
+    $select_team->execute();
+
+    if ($select_team->rowCount() > 0) {
+        while ($row = $select_team->fetch(PDO::FETCH_ASSOC)) {
+    ?>
+        <a href="team_detail.php?id=<?= $row['id_team']; ?>" class="box">
+            <img src="uploaded_files/<?= $row['foto']; ?>" alt="">
+            <h3><?= $row['nama']; ?></h3>
+            <span><?= $row['profesi']; ?></span>
+        </a>
+    <?php
+        }
+    } else {
+        echo '<p class="empty">Belum Ada Data Team</p>';
+    }
+    ?>
+
+    </div>
+
+</section>
+
+<?php include 'components/user_footer.php'; ?>
+</body>
+</html>
+
