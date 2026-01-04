@@ -1,5 +1,5 @@
 <?php
-include 'components/connect.php';
+require_once 'components/connect.php';
 
 $id = $_GET['id'] ?? '';
 
@@ -18,7 +18,8 @@ $row = $select->fetch(PDO::FETCH_ASSOC);
 <html lang="id">
 <head>
 <meta charset="UTF-8">
-<title><?= $row['nama']; ?></title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title><?= $row['nama']; ?> - Detail Dokter</title>
 <link rel="stylesheet" href="css/user_style.css">
 </head>
 <body>
@@ -29,20 +30,25 @@ $row = $select->fetch(PDO::FETCH_ASSOC);
 
     <div class="detail-container">
 
+        <!-- FOTO DOKTER -->
         <div class="image">
-            <img src="uploaded_files/<?= $row['foto']; ?>" alt="">
+            <img src="uploaded_files/<?= $row['foto']; ?>" alt="<?= $row['nama']; ?>">
         </div>
 
+        <!-- INFO -->
         <div class="content">
             <h2><?= $row['nama']; ?></h2>
-            <p><b>Profession :</b> <?= $row['profesi']; ?></p>
-            <p><b>Degree :</b> <?= $row['gelar']; ?></p>
-            <p><b>Email :</b> <?= $row['email']; ?></p>
-            <p><b>Address :</b> <?= $row['alamat']; ?></p>
 
-            <p class="desc"><?= $row['deskripsi']; ?></p>
+            <p><strong>Profesi:</strong> <?= $row['profesi']; ?></p>
+            <p><strong>Gelar:</strong> <?= $row['gelar']; ?></p>
+            <p><strong>Email:</strong> <?= $row['email']; ?></p>
+            <p><strong>Alamat:</strong> <?= $row['alamat']; ?></p>
 
-            <a href="team.php" class="btn">Go Back</a>
+            <p class="desc">
+                <?= $row['deskripsi']; ?>
+            </p>
+
+            <a href="team.php" class="btn-back">← Kembali ke Tim Dokter</a>
         </div>
 
     </div>
@@ -50,33 +56,6 @@ $row = $select->fetch(PDO::FETCH_ASSOC);
 </section>
 
 <?php include 'components/user_footer.php'; ?>
+
 </body>
 </html>
-
-<<?php
-include 'config/db.php';
-
-$id = $_GET['id'];
-$query = mysqli_query($conn, "SELECT * FROM team WHERE id='$id'");
-$data = mysqli_fetch_assoc($query);
-?>
-
-<section class="team-detail">
-    <div class="detail-container">
-
-        <div class="image">
-            <img src="assets/images/team/<?= $data['foto']; ?>">
-        </div>
-
-        <div class="content">
-            <h2><?= $data['nama']; ?></h2>
-            <h4><?= $data['profesi']; ?> - <?= $data['gelar']; ?></h4>
-
-            <p><strong>Email:</strong> <?= $data['email']; ?></p>
-            <p><strong>Alamat:</strong> <?= $data['alamat']; ?></p>
-
-            <a href="team.php" class="btn-back">← Kembali</a>
-        </div>
-
-    </div>
-</section>
