@@ -70,3 +70,24 @@ if ($select_team->rowCount() > 0) {
 ?>
 
 </div>
+
+<div class="team-card">
+
+    <div class="team-img">
+        <img src="uploaded_files/<?= htmlspecialchars($team['foto']); ?>" 
+             alt="<?= htmlspecialchars($team['nama']); ?>">
+    </div>
+
+    <div class="team-info">
+        <h3><?= htmlspecialchars($team['nama']); ?></h3>
+        <span>Profession : <?= htmlspecialchars($team['profesi']); ?></span>
+
+        <a href="team_detail.php?id=<?= $team['id_team']; ?>" class="btn-detail">
+            View Details
+        </a>
+    </div>
+
+</div>
+
+
+

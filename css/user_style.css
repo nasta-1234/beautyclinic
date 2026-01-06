@@ -1728,92 +1728,128 @@ section.home, .slider {
         border-radius: 5px;
     }
 }
- /* =========================
-   TEAM SECTION (FINAL)
-========================= */
 
-.team {
-    padding: 4rem 2rem;
-    background: linear-gradient(135deg, #fde4ec, #fff);
+/* FORCE TEAM CARD SIZE — FINAL */
+
+section.team .team-container{
+    display: grid !important;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)) !important;
+    gap: 30px !important;
+    justify-items: center !important;
 }
 
-.team-container {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr); /* 4 kolom */
-    gap: 2rem;
-    max-width: 100px;
-    margin: auto;
+section.team .team-card{
+    width: 50px !important;
+    max-width: 50px !important;
 }
 
-/* CARD */
-.team-card {
+section.team .team-img{
+    height: 240px !important;
+    overflow: hidden !important;
+}
+
+section.team .team-img img{
+    width: 50% !important;
+    height: 50% !important;
+    object-fit: cover !important;
+    max-width: 50% !important;
+    display: block !important;
+}
+
+/* FIX BANNER TERLALU BESAR */
+.banner{
+    min-height: 350px !important;
+    padding: 60px 10%;
+}
+
+.banner img{
+    height: 350px !important;
+    object-fit: cover;
+}
+
+/* ===========================
+   FORCE FIX TEAM.PHP IMAGE
+=========================== */
+
+section.team .team-container .team-card{
+    width: 260px !important;
+    max-width: 260px !important;
+}
+
+section.team .team-container .team-card .team-img{
+    width: 100% !important;
+    height: 240px !important;
+    overflow: hidden !important;
+}
+
+section.team .team-container .team-card .team-img img{
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: cover !important;
+    display: block !important;
+}
+
+/* TEAM CARD */
+.team-card{
+    width: 260px;
     background: #fff;
-    border-radius: 18px;
+    border-radius: 22px;
     overflow: hidden;
-    box-shadow: 0 8px 25px rgba(0,0,0,.12);
-    transition: .3s ease;
+    box-shadow: 0 15px 35px rgba(0,0,0,.12);
+    transition: .4s ease;
 }
 
-.team-card:hover {
-    transform: translateY(-6px);
+.team-card:hover{
+    transform: translateY(-10px);
+    box-shadow: 0 25px 45px rgba(0,0,0,.18);
 }
 
-/* LINK */
-.team-link {
-    text-decoration: none;
-    color: inherit;
-    display: block;
-}
-
-/* FRAME FOTO */
-.team-img {
+/* IMAGE */
+.team-img{
     width: 100%;
-    height: 100px; /* INI YANG BIKIN FOTO TIDAK BESAR */
+    height: 260px;
     overflow: hidden;
 }
 
-/* FOTO */
-.team-img img {
+.team-img img{
     width: 100%;
     height: 100%;
-    object-fit: cover; /* POTONG RAPI */
+    object-fit: cover;
 }
 
 /* INFO */
-.team-info {
-    padding: 1rem;
+.team-info{
+    padding: 20px;
     text-align: center;
 }
 
-.team-info h3 {
-    font-size: 1.05rem;
+.team-info h3{
+    font-size: 18px;
+    font-weight: 600;
+    margin-bottom: 6px;
+}
+
+.team-info span{
+    font-size: 14px;
     color: #e91e63;
-    margin-bottom: .2rem;
+    display: block;
+    margin-bottom: 15px;
 }
 
-.team-info span {
-    font-size: .85rem;
-    color: #777;
+/* BUTTON */
+.btn-detail{
+    display: inline-block;
+    padding: 10px 22px;
+    border-radius: 25px;
+    background: linear-gradient(45deg, #4caf50, #ffc107);
+    color: #fff;
+    font-size: 14px;
+    font-weight: 500;
+    text-decoration: none;
+    transition: .3s;
 }
 
-/* =========================
-   RESPONSIVE
-========================= */
-
-@media (max-width: 992px) {
-    .team-container {
-        grid-template-columns: repeat(3, 1fr);
-    }
+.btn-detail:hover{
+    background: linear-gradient(45deg, #43a047, #ffb300);
 }
 
-@media (max-width: 768px) {
-    .team-container {
-        grid-template-columns: repeat(2, 1fr);
-    }
-}
-
-@media (max-width: 480px) {
-    .team-container {
-        grid-template-columns: 1fr;
-    }
-}
