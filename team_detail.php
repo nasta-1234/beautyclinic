@@ -1,22 +1,22 @@
 <?php
-require_once __DIR__ . '/components/connect.php';
+require_once 'components/connect.php';
 
-if(!isset($_GET['id'])){
+if(!isset($_GET['tid'])){
     header('location:team.php');
     exit;
 }
 
-$id = $_GET['id'];
+$tid = $_GET['tid'];
 
-$select = $conn->prepare("SELECT * FROM team WHERE id_team = ?");
-$select->execute([$id]);
+$select_team = $conn->prepare("SELECT * FROM team WHERE id_team = ?");
+$select_team->execute([$tid]);
 
-if($select->rowCount() == 0){
+if($select_team->rowCount() == 0){
     header('location:team.php');
     exit;
 }
 
-$team = $select->fetch(PDO::FETCH_ASSOC);
+$doctor = $select_team->fetch(PDO::FETCH_ASSOC);
 ?>
 
 <!DOCTYPE html>
@@ -32,19 +32,25 @@ $team = $select->fetch(PDO::FETCH_ASSOC);
 
 <section class="team-detail">
 
-    <div class="detail-card">
-        <img src="uploaded_files/<?= $team['foto']; ?>" alt="<?= $team['nama']; ?>">
+    <div class="detail-container">
 
-        <div class="detail-info">
-            <h2><?= $team['nama']; ?></h2>
-            <span><?= $team['profesi']; ?></span>
-
-            <p><?= nl2br($team['deskripsi']); ?></p>
-
-            <a href="appointment.php?doctor=<?= $team['id_team']; ?>" class="btn-detail">
-                Book Appointment
-            </a>
+        <!-- FOTO -->
+        <div class="detail-image">
+            <img src="uploaded_files/<?= $doctor['foto']; ?>" alt="">
         </div>
+
+        <!-- INFO -->
+        <div class="detail-content">
+            <h2><?= $doctor['nama']; ?></h2>
+            <h4><?= $doctor['gelar']; ?></h4>
+
+            <p class="desc">
+                <?= nl2br($doctor['deskripsi']); ?>
+            </p>
+
+            <a href="team.php" class="btn">Kembali</a>
+        </div>
+
     </div>
 
 </section>

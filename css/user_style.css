@@ -1729,127 +1729,124 @@ section.home, .slider {
     }
 }
 
-/* FORCE TEAM CARD SIZE — FINAL */
+/* ================= TEAM PAGE (FINAL FIX) ================= */
 
-section.team .team-container{
-    display: grid !important;
-    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)) !important;
-    gap: 30px !important;
-    justify-items: center !important;
-}
-
-section.team .team-card{
-    width: 50px !important;
-    max-width: 50px !important;
-}
-
-section.team .team-img{
-    height: 240px !important;
-    overflow: hidden !important;
-}
-
-section.team .team-img img{
-    width: 50% !important;
-    height: 50% !important;
-    object-fit: cover !important;
-    max-width: 50% !important;
-    display: block !important;
-}
-
-/* FIX BANNER TERLALU BESAR */
-.banner{
-    min-height: 350px !important;
-    padding: 60px 10%;
-}
-
-.banner img{
-    height: 350px !important;
-    object-fit: cover;
-}
-
-/* ===========================
-   FORCE FIX TEAM.PHP IMAGE
-=========================== */
-
-section.team .team-container .team-card{
-    width: 260px !important;
-    max-width: 260px !important;
-}
-
-section.team .team-container .team-card .team-img{
-    width: 100% !important;
-    height: 240px !important;
-    overflow: hidden !important;
-}
-
-section.team .team-container .team-card .team-img img{
-    width: 100% !important;
-    height: 100% !important;
-    object-fit: cover !important;
-    display: block !important;
-}
-
-/* TEAM CARD */
-.team-card{
-    width: 260px;
+.team {
     background: #fff;
-    border-radius: 22px;
+}
+
+.team .box-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 4rem 2rem;
+
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 2rem;
+}
+
+.team .box {
+    background: #fff;
+    border-radius: 15px;
     overflow: hidden;
-    box-shadow: 0 15px 35px rgba(0,0,0,.12);
-    transition: .4s ease;
+    text-align: center;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+    transition: transform .3s ease;
 }
 
-.team-card:hover{
-    transform: translateY(-10px);
-    box-shadow: 0 25px 45px rgba(0,0,0,.18);
+.team .box:hover {
+    transform: translateY(-5px);
 }
 
-/* IMAGE */
-.team-img{
+/* FOTO DOKTER */
+.team .box img.image {
     width: 100%;
-    height: 260px;
-    overflow: hidden;
-}
-
-.team-img img{
-    width: 100%;
-    height: 100%;
+    height: 220px;
     object-fit: cover;
 }
 
-/* INFO */
-.team-info{
-    padding: 20px;
-    text-align: center;
+/* KONTEN */
+.team .content {
+    padding: 1.2rem;
 }
 
-.team-info h3{
-    font-size: 18px;
-    font-weight: 600;
-    margin-bottom: 6px;
+.team .content h3 {
+    font-size: 1.1rem;
+    margin-bottom: .3rem;
+    color: #333;
 }
 
-.team-info span{
-    font-size: 14px;
-    color: #e91e63;
-    display: block;
-    margin-bottom: 15px;
+.team .content .role {
+    font-size: .9rem;
+    color: #777;
+    margin-bottom: .8rem;
 }
 
-/* BUTTON */
-.btn-detail{
-    display: inline-block;
-    padding: 10px 22px;
-    border-radius: 25px;
-    background: linear-gradient(45deg, #4caf50, #ffc107);
-    color: #fff;
-    font-size: 14px;
-    font-weight: 500;
-    text-decoration: none;
-    transition: .3s;
+/* TOMBOL */
+.team .btn {
+    font-size: .85rem;
+    padding: .5rem 1.2rem;
 }
 
-.btn-detail:hover{
-    background: linear-gradient(45deg, #43a047, #ffb300);
+/* RESPONSIVE */
+@media (max-width: 600px) {
+    .team .box img.image {
+        height: 180px;
+    }
 }
 
+/* ================= DETAIL TEAM ================= */
+
+.team-detail {
+    padding: 4rem 2rem;
+}
+
+.detail-container {
+    max-width: 1000px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr 1.2fr;
+    gap: 3rem;
+    align-items: center;
+}
+
+.detail-image img {
+    width: 100%;
+    height: 420px;
+    object-fit: cover;
+    border-radius: 20px;
+    box-shadow: 0 15px 30px rgba(0,0,0,.1);
+}
+
+.detail-content h2 {
+    font-size: 2rem;
+    margin-bottom: .5rem;
+}
+
+.detail-content h4 {
+    font-size: 1.1rem;
+    color: #777;
+    margin-bottom: 1.5rem;
+}
+
+.detail-content .desc {
+    font-size: 1rem;
+    line-height: 1.8;
+    margin-bottom: 2rem;
+    color: #444;
+}
+
+/* RESPONSIVE */
+@media (max-width: 768px) {
+    .detail-container {
+        grid-template-columns: 1fr;
+        text-align: center;
+    }
+
+   .detail-image img {
+    width: 320px;
+    height: 320px;
+    object-fit: cover;
+    border-radius: 18px;
+    box-shadow: 0 10px 25px rgba(0,0,0,.12);
+}
