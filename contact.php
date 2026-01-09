@@ -78,11 +78,7 @@ if(isset($success_msg)){
 <div class="banner">
     <div class="detail">
         <h1>Hubungi Kami</h1>
-            <p>Team Dokter NASTA Beauty Clinic terdiri dari tenaga medis profesional yang berpengalaman di bidang estetika dan perawatan kecantikan. Setiap dokter memiliki latar belakang pendidikan kedokteran dari universitas ternama serta kompetensi di bidangnya masing-masing, mulai dari perawatan kulit, wajah, hingga perawatan tubuh berbasis teknologi modern.
-
-Dengan mengutamakan konsultasi yang menyeluruh dan pendekatan yang personal, team dokter kami berkomitmen untuk memahami kebutuhan serta kondisi setiap pasien sebelum menentukan jenis perawatan yang tepat. Setiap tindakan dilakukan dengan standar medis yang aman, menggunakan teknologi dan produk berkualitas tinggi, demi memberikan hasil yang optimal dan alami.
-
-Didukung oleh suasana klinik yang nyaman dan pelayanan yang ramah, Team Dokter NASTA Beauty Clinic siap memberikan pengalaman perawatan yang profesional, aman, dan menyenangkan, serta membantu setiap pasien tampil lebih sehat, segar, dan percaya diri.</p>
+            <p>Hubungi kami untuk mendapatkan informasi lebih lanjut mengenai layanan kami. Tim kami siap membantu dan memberikan solusi yang sesuai dengan kebutuhan Anda.</p>
         <span><a href="index.php">home</a> <i class="bx bx-right-arrow-alt"></i>Hubungi Kami</span>
     </div>
 </div>
@@ -100,7 +96,7 @@ Didukung oleh suasana klinik yang nyaman dan pelayanan yang ramah, Team Dokter N
          <div class="info-card">
             <i class="bx bx-map"></i>
             <h3>Address</h3>
-            <p>Jl. Contoh Alamat No. 123<br>Jakarta</p>
+            <p>Jl. Ahmad Yani NO 10<br>Bandung</p>
          </div>
 
          <div class="info-card">
@@ -112,7 +108,7 @@ Didukung oleh suasana klinik yang nyaman dan pelayanan yang ramah, Team Dokter N
          <div class="info-card">
             <i class="bx bx-envelope"></i>
             <h3>Email</h3>
-            <p>contact@nastabeauty.com</p>
+            <p>nastabeauty@nastaclinic.com</p>
          </div>
 
       </div>
