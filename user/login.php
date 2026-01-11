@@ -1,7 +1,8 @@
 <?php
+session_start(); // 🔥 WAJIB PALING ATAS
+
 include '../components/connect.php';
 include '../components/user_header.php';
-session_start();
 
 if (isset($_POST['login'])) {
 
@@ -13,7 +14,9 @@ if (isset($_POST['login'])) {
 
     if ($select_user->rowCount() > 0) {
         $row = $select_user->fetch(PDO::FETCH_ASSOC);
-        $_SESSION['id_pelanggan'] = $row['id_pelanggan'];
+
+        $_SESSION['id_pelanggan'] = $row['id_pelanggan']; // ✅ ini sudah benar
+
         header('location: ../index.php');
         exit;
     } else {

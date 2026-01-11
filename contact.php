@@ -1,43 +1,39 @@
 <?php
-// Koneksi database
+session_start(); // HARUS PALING ATAS
 require_once __DIR__ . '/components/connect.php';
 
-// Cek login
-$id_pelanggan = isset($_COOKIE['id_pelanggan']) ? $_COOKIE['id_pelanggan'] : '';
-?>
-
-<?php
-require_once __DIR__ . '/components/connect.php';
-
-$id_pelanggan = $_COOKIE['id_pelanggan'] ?? '';
+// ambil login dari SESSION
+$id_pelanggan = $_SESSION['id_pelanggan'] ?? '';
 
 $warning_msg = [];
 $success_msg = [];
 
-if(isset($_POST['send'])){
+if (isset($_POST['send'])) {
 
-   if($id_pelanggan == ''){
+   if ($id_pelanggan == '') {
       $warning_msg[] = 'please login first';
-   }else{
+   } else {
 
-      $name = filter_var($_POST['name'], FILTER_SANITIZE_STRING);
-      $email = filter_var($_POST['email'], FILTER_SANITIZE_STRING);
-      $subject = filter_var($_POST['subject'], FILTER_SANITIZE_STRING);
-      $message = filter_var($_POST['message'], FILTER_SANITIZE_STRING);
+      // sanitasi input (aman & tidak deprecated)
+      $name    = htmlspecialchars(trim($_POST['name']), ENT_QUOTES, 'UTF-8');
+      $email   = htmlspecialchars(trim($_POST['email']), ENT_QUOTES, 'UTF-8');
+      $subject = htmlspecialchars(trim($_POST['subject']), ENT_QUOTES, 'UTF-8');
+      $message = htmlspecialchars(trim($_POST['message']), ENT_QUOTES, 'UTF-8');
 
-      // Cek apakah pesan sama sudah dikirim
+      // cek pesan duplikat
       $verify_msg = $conn->prepare(
-         "SELECT * FROM `message` 
+         "SELECT * FROM messages
           WHERE user_id = ? AND name = ? AND email = ? AND subject = ? AND message = ?"
       );
       $verify_msg->execute([$id_pelanggan, $name, $email, $subject, $message]);
 
-      if($verify_msg->rowCount() > 0){
+      if ($verify_msg->rowCount() > 0) {
          $warning_msg[] = 'message already sent';
-      }else{
+      } else {
+
          $insert_msg = $conn->prepare(
-            "INSERT INTO `message`(user_id, name, email, subject, message) 
-             VALUES(?,?,?,?,?)"
+            "INSERT INTO messages (user_id, name, email, subject, message)
+             VALUES (?, ?, ?, ?, ?)"
          );
          $insert_msg->execute([$id_pelanggan, $name, $email, $subject, $message]);
 
@@ -56,32 +52,39 @@ if(isset($_POST['send'])){
 <link rel="stylesheet" href="css/user_style.css">
 <link href="https://unpkg.com/boxicons@2.1.2/css/boxicons.min.css" rel="stylesheet">
 </head>
-<?php
-if(isset($warning_msg)){
-   foreach($warning_msg as $msg){
-      echo '<script>alert("'.$msg.'");</script>';
-   }
-}
-if(isset($success_msg)){
-   foreach($success_msg as $msg){
-      echo '<script>alert("'.$msg.'");</script>';
-   }
-}
-?>
 
 <body>
+
+<?php if (!empty($success_msg)) : ?>
+   <div class="toast success">
+      💖 Pesan kamu berhasil terkirim!<br>
+   </div>
+<?php endif; ?>
+
+<?php if (!empty($warning_msg)) : ?>
+   <div class="toast error">
+      😿 <?= $warning_msg[0]; ?>
+   </div>
+<?php endif; ?>
 
 <!-- Header -->
 <?php include 'components/user_header.php'; ?>
 
-
 <div class="banner">
-    <div class="detail">
-        <h1>Hubungi Kami</h1>
-            <p>Hubungi kami untuk mendapatkan informasi lebih lanjut mengenai layanan kami. Tim kami siap membantu dan memberikan solusi yang sesuai dengan kebutuhan Anda.</p>
-        <span><a href="index.php">home</a> <i class="bx bx-right-arrow-alt"></i>Hubungi Kami</span>
-    </div>
+   <div class="detail">
+      <h1>Hubungi Kami</h1>
+      <p>
+         Hubungi kami untuk mendapatkan informasi lebih lanjut mengenai layanan kami.
+         Tim kami siap membantu dan memberikan solusi yang sesuai dengan kebutuhan Anda.
+      </p>
+      <span>
+         <a href="index.php">home</a>
+         <i class="bx bx-right-arrow-alt"></i>
+         Hubungi Kami
+      </span>
+   </div>
 </div>
+
 <section class="contact">
 
    <div class="contact-title">
@@ -133,7 +136,7 @@ if(isset($success_msg)){
 <?php include 'components/user_footer.php'; ?>
 
 <footer>
-    <p>&copy; <?= date("Y"); ?> Beauty Clinic. All rights reserved.</p>
+   <p>&copy; <?= date("Y"); ?> Beauty Clinic. All rights reserved.</p>
 </footer>
 
 </body>
