@@ -1,22 +1,23 @@
 <?php
+if (session_status() === PHP_SESSION_NONE) {
+   session_start();
+}
+
 // Koneksi ke database
 include_once __DIR__ . '/connect.php';
 
 // Cek apakah user login
-$id_Pelanggan = isset($_COOKIE['id_pelanggan']) ? $_COOKIE['id_pelanggan'] : '';
-
-// Inisialisasi variabel agar tidak Undefined
-$fetch_profile = null;
+$id_Pelanggan = $_SESSION['id_pelanggan'] ?? '';
 
 // Ambil data user jika login
+$fetch_profile = null;
 if ($id_Pelanggan) {
-    $select_profile = $conn->prepare("SELECT * FROM pelanggan WHERE id_pelanggan = ?");
-    $select_profile->execute([$id_Pelanggan]);
-    $fetch_profile = $select_profile->fetch(PDO::FETCH_ASSOC);
+   $select_profile = $conn->prepare("SELECT * FROM pelanggan WHERE id_pelanggan = ?");
+   $select_profile->execute([$id_Pelanggan]);
+   $fetch_profile = $select_profile->fetch(PDO::FETCH_ASSOC);
 }
 ?>
 
-<!-- CSS USER -->
 <link rel="stylesheet" href="/beautyclinic/css/user_style.css">
 
 <header class="header">
@@ -36,7 +37,14 @@ if ($id_Pelanggan) {
       <a href="/beautyclinic/team.php">team</a>
       <a href="/beautyclinic/book_appointment.php">appointment</a>
       <a href="/beautyclinic/contact.php">contact</a>
+      <a href="/beautyclinic/user/profile.php">profile</a>
     </nav>
+
+    <!-- SEARCH FORM (AWALNYA HIDDEN) -->
+    <form action="/beautyclinic/search_service.php" method="get" class="search-form">
+      <input type="text" name="search" placeholder="Cari layanan..." required>
+      <button type="submit" class="btn">Search</button>
+    </form>
 
     <!-- ICONS -->
     <div class="icons">
@@ -69,19 +77,36 @@ if ($id_Pelanggan) {
   </section>
 </header>
 
-<!-- TOGGLE PROFILE -->
+<!-- TOGGLE SEARCH & PROFILE -->
 <script>
 const userBtn = document.getElementById('user-btn');
 const profileBox = document.querySelector('.profile');
 
+const searchBtn = document.getElementById('search-btn');
+const searchForm = document.querySelector('.search-form');
+
+// toggle profile
 userBtn.addEventListener('click', (e) => {
   e.stopPropagation();
   profileBox.classList.toggle('active');
+  searchForm.classList.remove('active');
 });
 
-document.addEventListener('click', (e) => {
-  if (!profileBox.contains(e.target) && !userBtn.contains(e.target)) {
-    profileBox.classList.remove('active');
-  }
+// toggle search
+searchBtn.addEventListener('click', (e) => {
+  e.stopPropagation();
+  searchForm.classList.toggle('active');
+  profileBox.classList.remove('active');
+});
+
+// ⛔ PENTING: cegah klik di form menutup search
+searchForm.addEventListener('click', (e) => {
+  e.stopPropagation();
+});
+
+// klik di luar → tutup semua
+document.addEventListener('click', () => {
+  profileBox.classList.remove('active');
+  searchForm.classList.remove('active');
 });
 </script>

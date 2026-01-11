@@ -2163,3 +2163,130 @@ section.home, .slider {
    to { opacity: 0; transform: translateX(100%); }
 }
 </style>
+
+.profile-card {
+  text-align: center;
+  max-width: 300px;
+}
+
+.update-btn {
+  display: inline-block;
+  margin-top: 10px;
+}
+
+.profile-info {
+  display: flex;
+  justify-content: flex-end; /* ke kanan */
+  gap: 20px;
+  margin-top: 30px;
+}
+
+.info-box {
+  min-width: 180px;
+  text-align: center;
+}
+
+.profile {
+  display: flex;
+  justify-content: center;
+  padding: 50px 0;
+}
+
+.profile-card {
+  background: #fff;
+  padding: 25px;
+  width: 340px;
+  text-align: center;
+  border-radius: 15px;
+  box-shadow: 0 8px 25px rgba(0,0,0,.08);
+}
+
+.profile-img {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-bottom: 12px;
+}
+
+.profile-card img.profile-img {
+  width: 100px !important;
+  height: 100px !important;
+  border-radius: 50%;
+  object-fit: cover;
+  display: block;
+  margin: 0 auto 15px;
+}
+
+.profile-card img {
+  width: 100Px !important;
+  height: 100px !important;
+}
+
+/* ===== HALAMAN PROFIL ===== */
+.profile-page{
+   min-height: 100vh;
+   padding: 4rem 2rem;
+   display: flex;
+   flex-direction: column;
+   align-items: center;
+   gap: 3rem;
+}
+
+/* KARTU PROFIL (TENGAH) */
+.profile-card{
+   background: #fff;
+   padding: 2.5rem 2rem;
+   border-radius: 1.5rem;
+   width: 320px;
+   text-align: center;
+   box-shadow: 0 10px 25px rgba(0,0,0,.1);
+}
+
+/* FOTO PROFIL KECIL */
+.profile-img{
+   width: 110px;
+   height: 110px;
+   object-fit: cover;
+   border-radius: 50%;
+   margin-bottom: 1rem;
+}
+
+/* INFO BOX (DUA DI BAWAH) */
+.profile-info{
+   display: grid;
+   grid-template-columns: repeat(2, 260px);
+   gap: 2rem;
+   justify-content: center;
+}
+
+/* BOX JANJI & PESAN */
+.profile-info .info-box{
+   background: #fff;
+   padding: 2rem;
+   border-radius: 1.5rem;
+   text-align: center;
+   box-shadow: 0 10px 25px rgba(0,0,0,.1);
+}
+
+.search-form {
+  position: absolute;
+  top: 100%;
+  right: 2rem;
+  background: #fff;
+  padding: 1rem;
+  border-radius: .5rem;
+  box-shadow: 0 .5rem 1rem rgba(0,0,0,.1);
+  display: none;
+}
+
+.search-form.active {
+  display: flex;
+  gap: .5rem;
+}
+
+.search-form input {
+  padding: .6rem 1rem;
+  border: 1px solid #ccc;
+  border-radius: .4rem;
+}
