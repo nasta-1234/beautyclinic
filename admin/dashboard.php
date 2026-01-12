@@ -8,6 +8,7 @@ if (isset($_COOKIE['admin_id'])) {
     header('location:login.php');
     exit();
 }
+
 ?>
 <!DOCTYPE html>
 <html>
@@ -81,7 +82,7 @@ if (isset($_COOKIE['admin_id'])) {
                 ?>
                 <h3><?= $num_of_msg; ?></h3>
                 <p>Semua Pesanan</p>
-                <a href="admin_message.php" class="btn">Lihat Pesanan</a>
+                <a href="admin_massage.php" class="btn">Lihat Pesanan</a>
             </div>
 
             <div class="box">
@@ -158,7 +159,7 @@ if (isset($_COOKIE['admin_id'])) {
                 ?>
                 <h3><?= $num_of_users; ?></h3>
                 <p>Semua Pelanggan</p>
-                <a href="view_users.php" class="btn">Lihat Pelanggan</a>
+                <a href="view_user.php" class="btn">Lihat Pelanggan</a>
             </div>
         </div>
     </section>

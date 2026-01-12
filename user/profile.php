@@ -1,6 +1,9 @@
 <?php
 session_start();
-require_once __DIR__ . '/../components/connect.php';
+if (!isset($_SESSION['id_pelanggan'])) {
+   header('Location: /beautyclinic/user/login.php');
+   exit;
+}
 
 /* Cek login */
 $id_pelanggan = $_SESSION['id_pelanggan'] ?? '';

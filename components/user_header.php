@@ -37,7 +37,6 @@ if ($id_Pelanggan) {
       <a href="/beautyclinic/team.php">team</a>
       <a href="/beautyclinic/book_appointment.php">appointment</a>
       <a href="/beautyclinic/contact.php">contact</a>
-      <a href="/beautyclinic/user/profile.php">profile</a>
     </nav>
 
     <!-- SEARCH FORM (AWALNYA HIDDEN) -->

@@ -123,7 +123,7 @@ $stmt->execute([
    </div>
 
    <!-- hidden -->
-   <input type="hidden" name="id_user" value="<?= $_SESSION['id_pelanggan']; ?>">
+   <input type="hidden" name="id_user" value="<?= $_SESSION['id_pelanggan'] ?? ''; ?>">
    <input type="hidden" name="status" value="menunggu">
 
    <button type="submit" name="book" class="btn-appointment">
