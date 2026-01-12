@@ -1,9 +1,11 @@
 <?php
+session_start();
 $conn = new PDO("mysql:host=localhost;dbname=db_beautyclinic","root","");
 $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
 if(isset($_POST['book'])){
 
+    $id_user     = $_POST['id_user'];
     $nama        = $_POST['nama'];
     $no_telp     = $_POST['no_telp'];
     $email       = $_POST['email'];
@@ -11,22 +13,30 @@ if(isset($_POST['book'])){
     $id_karyawan = $_POST['id_karyawan'];
     $tanggal     = $_POST['tanggal'];
     $jam         = $_POST['jam'];
+    $harga       = $_POST['harga'] ?? 0;
 
-    $stmt = $conn->prepare("
-        INSERT INTO janji
-        (nama, no_telp, email, id_layanan, id_karyawan, tanggal, jam, status, status_pembayaran)
-        VALUES (?,?,?,?,?,?,?, 'menunggu', 'belum')
-    ");
+    // 🔍 CEK ID USER
+    if(empty($id_user)){
+        die('ID user kosong, silakan login ulang');
+    }
 
-    $stmt->execute([
-        $nama,
-        $no_telp,
-        $email,
-        $id_layanan,
-        $id_karyawan,
-        $tanggal,
-        $jam
-    ]);
+   $stmt = $conn->prepare("
+    INSERT INTO janji
+    (id_user, nama, no_telp, email, id_layanan, id_karyawan, tanggal, jam, harga, status, status_pembayaran)
+    VALUES (?,?,?,?,?,?,?,?,?, 'menunggu', 'belum')
+");
+
+$stmt->execute([
+    $id_user,
+    $nama,
+    $no_telp,
+    $email,
+    $id_layanan,
+    $id_karyawan,
+    $tanggal,
+    $jam,
+    $harga
+]);
 
     $success = true;
 }

@@ -2334,9 +2334,9 @@ section.home, .slider {
    font-size: 1.6rem;
    border-radius: 10px;
    border: none;
-   color: #fff;
+   color: #cd0988;
    cursor: pointer;
-   background: linear-gradient(90deg, #ffd86f, #9be15d);
+   background: linear-gradient(90deg, #ff6fbc, #e15d92);
 }
 
 @media (max-width: 768px) {
